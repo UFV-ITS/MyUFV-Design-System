@@ -1,0 +1,190 @@
+/* 
+Component styles: these include utility classes for basic styles that are used throughout our components,
+templates,
+and pages. it depends on _variables.css */
+
+/* 1. CARDS */
+.card {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* 1.1 BUTTON CARDS */
+.card__button {
+    font-family: "Open-Sans", sans-serif;
+    padding: calc(var(--size-4) + 10px) var(--size-3) var(--size-4) var(--size-3);
+    border-bottom: 10px solid var(--amber-3);
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "main"
+        "button";
+}
+
+.card__button h3 {
+    font-size: var(--font-size-5);
+    margin: var(--size-4) 0 0 0;
+}
+
+.card__button__content {
+    grid-area: main;
+    align-self: start;
+    display: grid;
+    place-items: center;
+}
+
+.card__button__button {
+    grid-area: button;
+    align-self: end;
+    display: grid;
+    place-items: center;
+}
+
+.card__button__button a,
+.card__button__button button {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    text-align: center;
+    background-color: var(--amber-3);
+    color: #000;
+    font-weight: 600;
+    width: 100%;
+}
+
+.card__button__button a:hover,
+.card__button__button button:hover {
+    color: #fff;
+    background: var(--gray-4);
+    text-decoration: none !important;
+}
+
+/* 1.1.1 CARD BUTTON: LIGHT */
+.card__button--light {
+    background: var(--gray-2);
+    color: var(--gray-6);
+}
+
+/* 1.1.2 CARD BUTTON: DARK */
+.card__button--dark {
+    background: var(--gray-4);
+    color: var(--gray-1);
+    border-bottom: 10px solid var(--gray-3);
+}
+
+.card__button--dark .card__button__button a,
+.card__button--dark .card__button__button button {
+    color: var(--gray-6);
+    background: var(--gray-3);
+}
+
+.card__button--dark .card__button__button a:hover,
+.card__button--dark .card__button__button button:hover {
+    color: var(--gray-4);
+    background: var(--gray-1);
+}
+
+
+/* 1.1.3 CARD BUTTON HERO  */
+.card__button--hero {
+    position: relative;
+    z-index: 0;
+    color: var(--gray-1);
+    background-image: var(--bg-image);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+.card__button--hero .card__button__content {
+    text-shadow: 1px 1px 2px #000000;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
+
+.card__button--hero>* {
+    z-index: 2;
+}
+
+.card__button--hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px 4px 0px 0px;
+    z-index: 1;
+}
+
+.card__button--hero .card__button__button a,
+.card__button--hero .card__button__button button {
+    color: var(--gray-4);
+    background: var(--gray-1);
+}
+
+.card__button--hero .card__button__button a:hover,
+.card__button--hero .card__button__button button:hover {
+    color: var(--gray-6);
+    background: var(--gray-3);
+}
+
+/* 1.2 LINKS CARDS */
+.card__links {
+    background: #9bb9ad;
+    font-family: "Open-Sans", sans-serif;
+    padding: var(--size-4) var(--size-3);
+}
+
+.card__links__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    gap: var(--size-2);
+}
+
+.card__links__list-item {
+    list-style: none;
+}
+
+.card__links__list-item a {
+    display: flex;
+    gap: 0.6em;
+    padding: 1.0em;
+    background: #f5f5f5;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-left: 4px solid #be6e3e;
+    overflow: hidden;
+    text-decoration: none;
+    font-weight: bold;
+    color: #00703c;
+}
+
+.card__links__list-item a:hover {
+    background: white;
+}
+
+.card__links__list-item a:hover .card__links__list-item__text {
+    text-decoration: underline;
+    color: #403f3f;
+}
+
+.card__links__list-item a span[aria-label="icon"] {
+    display: block;
+    color: #444;
+}
+
+.card__links__list-item a:hover span[aria-label="icon"] {
+    color: #8DC63F;
+    text-decoration: none;
+}

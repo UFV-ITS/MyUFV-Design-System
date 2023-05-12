@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyUFV Design Systems Examples</title>
+    <!-- import relevant styles -->
+    <link rel="stylesheet" href="./styles/_variables.css">
+    <link rel="stylesheet" href="./styles/primitives.css">
+    <link rel="stylesheet" href="./styles/components.css">
+    <!-- this is specific to this example file -->
+    <style>
+        /* THESE STYLES ARE STRICTLY FOR THE PREVIEW PAGE */
+        * {
+            font-family: var(--font-family-body);
+        }
+
+        body {
+            margin: 0px;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .main-container>* {
+            max-width: 1100px;
+            width: 100%;
+            padding: 0 var(--size-3);
+        }
+
+        header {
+            position: relative;
+            padding: var(--size-6) var(--size-3);
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0)), url(https://ufv.ca/bbstatic/bg.jpg);
+            background-size: cover;
+            background-position: center center;
+            min-height: 320px;
+            margin-bottom: 150px;
+        }
+
+        header img {
+            width: clamp(128px, 10vw, 164px);
+        }
+
+        header h1 {
+            margin-top: var(--size-2);
+        }
+
+        .header__content {
+            padding: 0;
+        }
+
+        .header__card {
+            position: absolute;
+            bottom: -120px;
+            padding: var(--size-5);
+            border-radius: 4px;
+            background: white;
+            margin: 0 var(--size-3) 0 0;
+            border-top: 1rem solid #00703C;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 5px 8px 0px, rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;
+        }
+
+        /* color grids */
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+            gap: var(--size-2);
+        }
+
+        .color-grid .color-grid__item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--size-1);
+            padding-bottom: var(--size-3);
+        }
+
+        .color-grid .color-grid__item span {
+            display: block;
+            padding: var(--size-5);
+            border-radius: 4px;
+        }
+
+
+
+        /* component grids */
+        .grid {
+            display: grid;
+            grid-gap: 1em;
+            grid-template-columns: repeat(auto-fit, minmax(auto, 420px));
+            grid-template-rows: repeat(auto-fit, minmax(auto, 290px));
+        }
+
+        .grid>* {
+            position: relative;
+            max-width: 580px;
+            width: 100%;
+            max-height: 290px;
+            height: 100%;
+            /* border: 2px solid var(--gray-4); */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-container">
+        <div class="header__logo">
+            <img src="https://ufv.ca/bbstatic/myufv.png" alt="My UFV Logo">
+        </div>
+        <div class="header__content">
+            <div class="header__card">
+                <small>Components, Colors, Fonts, etc.</small>
+                <h1>MyUFV Design System Examples</h1>
+                <p>Welcome to the MyUFV design system examples page.</p>
+            </div>
+        </div>
+    </header>
+    <main class="main-container">
+        <section>
+            <h2>Introduction</h2>
+            <p>This page is meant as a reference point for the MyUFV design system.</p>
+            <p>It is meant to be a living document, and will be updated as the design system evolves. We should treat
+                this page and the style sheets in this repo as our source of truth for MyUFV styling.</p>
+        </section>
+
+        <section>
+            <h2>Primitives</h2>
+
+            <article>
+                <h3>Colors</h3>
+                <p>Colors are defined in the <code>_variables.css</code> file. They are defined as CSS variables, so
+                    they can be used in any CSS file.</p>
+                <div class="color-grid">
+                    <div class="color-grid__item"><span style="background-color: var(--gray-1);"></span>--gray-1</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-2);"></span>--gray-2</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-3);"></span>--gray-3</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-4);"></span>-gray-4</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-5);"></span>--gray-5</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-6);"></span>
+                        --gray-6
+                    </div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-7);"></span>
+                        --gray-7
+                    </div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-1);"></span>--gray-1</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-2);"></span>--gray-2</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-3);"></span>--gray-3</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-4);"></span>-gray-4</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-5);"></span>--gray-5</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-6);"></span>
+                        --gray-6
+                    </div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-7);"></span>
+                        --gray-7
+                    </div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-1);"></span>--gray-1</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-2);"></span>--gray-2</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-3);"></span>--gray-3</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-4);"></span>-gray-4</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-5);"></span>--gray-5</div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-6);"></span>
+                        --gray-6
+                    </div>
+                    <div class="color-grid__item"><span style="background-color: var(--gray-7);"></span>
+                        --gray-7
+                    </div>
+                </div>
+                <p>You can access colors through CSS Properties (also known as CSS variables). For example, to use
+                    gray-1 in your CSS just reference the function like var(--gray-1)</p>
+            </article>
+
+            <article>
+                <h3>Typography</h3>
+            </article>
+
+            <article>
+                <h3>Spacing</h3>
+            </article>
+
+            <article>
+                <h3>Shadows</h3>
+            </article>
+
+            <article>
+                <h3>Icons</h3>
+                <p>We primarily use font-awesome icons throughout the application. As a fallback, we also use icons from
+                    Ellucian's design system.</p>
+                <p>If you choose to use font-awesome, you'll have to get your own license here.</p>
+            </article>
+
+            <article>
+                <h3>Misc utilities</h3>
+            </article>
+        </section>
+
+        <section>
+            <h2>Components</h2>
+            <p>Components are pre-built user interfaces that can be edited and dropped into our MyUFV components as
+                needed. To keep things consistent, we've documented a few of them here.</p>
+            <p></p>
+
+            <article>
+                <h3>Card Templates</h3>
+                <p>Card templates are components that can be dropped into Ellucian Experience HTML / IFrame cards. These
+                    are useful for linking off to external resources or systems.</p>
+                <div class="grid">
+                    <!-- Button Card: Light -->
+                    <div class="card card__button card__button--light">
+                        <div class="card__button__content">
+                            <span class="icon fa fa-fw fa-3x fa-solid fa-user-gear"></span>
+                            <ul>
+                                <li>This is a "button card"</li>
+                                <li>It is used to link to a secondary site / location</li>
+                                <li>This list usually lists things at said location</li>
+                            </ul>
+                        </div>
+                        <div class="card__button__button">
+                            <a href="#" class="orange-button" target="_blank" title="do something here">do something
+                                here</a>
+                        </div>
+                    </div>
+
+                    <!-- Button Card: Dark  -->
+                    <div class="card card__button card__button--dark">
+                        <div class="card__button__content">
+                            <span class="icon fa fa-fw fa-3x fa-solid fa-user-gear"></span>
+                            <p>
+                                You can also put <strong>Text Content</strong> into these button cards.
+                                This is useful for when you want to have more of a conversational tone
+                                or written content could better explain the purpose of the button.
+                            </p>
+                        </div>
+                        <div class="card__button__button">
+                            <a href="#" class="orange-button" target="_blank" title="do something here">do something
+                                here</a>
+                        </div>
+                    </div>
+
+                    <!-- Button Card: Hero  -->
+                    <div class="card card__button card__button--hero"
+                        style="--bg-image: url(https://live.staticflickr.com/65535/52862915746_b0210a9e6a_h.jpg)">
+                        <div class="card__button__content">
+                            <h3>This is a Button Card Hero</h3>
+                            <p>It has a heading, and text content within. It also has a photo background.</p>
+                        </div>
+                        <div class="card__button__button">
+                            <a href="#" class="orange-button" target="_blank" title="do something here">do something
+                                here</a>
+                        </div>
+                    </div>
+
+                    <!-- Links Card   -->
+                    <div class="card card__links">
+                        <ul class="card__links__list">
+                            <li class="card__links__list-item">
+                                <a href="">
+                                    <span aria-label="icon" contenteditable="false" role="region" tabindex="-1"
+                                        class="icon fa fa-fw fa-1x fa-solid fa-circle-check"></span>
+                                    <span class="card__links__list-item__text">This is a "links card"</span>
+                                </a>
+                            </li>
+                            <li class="card__links__list-item">
+                                <a href="">
+                                    <span aria-label="icon" contenteditable="false" role="region" tabindex="-1"
+                                        class="icon fa fa-fw fa-1x fa-solid fa-user-gear"></span>
+                                    <span class="card__links__list-item__text">This is a "links card"</span>
+                                </a>
+                            </li>
+                            <li class="card__links__list-item">
+                                <a href="">
+                                    <span aria-label="icon" contenteditable="false" role="region" tabindex="-1"
+                                        class="icon fa fa-fw fa-1x fa-solid fa-calendar"></span>
+                                    <span class="card__links__list-item__text">This is a "links card"</span>
+                                </a>
+                            </li>
+                            <li class="card__links__list-item">
+                                <a href="">
+                                    <span aria-label="icon" contenteditable="false" role="region" tabindex="-1"
+                                        class="icon fa fa-fw fa-1x fa-solid fa-user-gear"></span>
+                                    <span class="card__links__list-item__text">This is a "links card"</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article>
+                <h3></h3>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>MyUFV Design System Examples</p>
+    </footer>
+</body>
+
+</html>
