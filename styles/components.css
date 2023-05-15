@@ -16,7 +16,7 @@ and pages. it depends on _variables.css */
 .card__button {
     font-family: "Open-Sans", sans-serif;
     padding: calc(var(--size-4) + 10px) var(--size-3) var(--size-4) var(--size-3);
-    border-bottom: 10px solid var(--amber-3);
+    border-bottom: 10px solid var(--amber-5);
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto;
@@ -50,16 +50,17 @@ and pages. it depends on _variables.css */
     padding: 15px;
     text-decoration: none;
     text-align: center;
-    background-color: var(--amber-3);
+    background-color: var(--amber-5);
     color: #000;
     font-weight: 600;
     width: 100%;
+    transition: all 0.15s ease-in-out;
 }
 
 .card__button__button a:hover,
 .card__button__button button:hover {
     color: #fff;
-    background: var(--gray-4);
+    background: var(--amber-6);
     text-decoration: none !important;
 }
 

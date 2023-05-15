@@ -19,24 +19,34 @@ It can be used independently of the other files, but it is a dependency at the t
     /* COLORS */
     /* color scales */
     --gray-1: #ffffff;
-    --gray-2: #ebebeb;
-    --gray-3: #6ca7a3;
-    --gray-4: #3b5b59;
-    --gray-5: #444;
-    --gray-6: #192827;
-    --gray-7: #000000;
+    --gray-2: #D7DEDD;
+    --gray-3: #899C9B;
+    --gray-4: #627B7A;
+    --gray-5: #3b5b59;
+    --gray-6: #2F4847;
+    --gray-7: #233635;
+    --gray-8: #172423;
+    --gray-9: #0B1211;
 
-    --green-1: 1;
-    --green-2: 2;
-    --green-3: 3;
-    --green-4: 4;
-    --green-5: 5;
+    --green-1: #CCE2D8;
+    --green-2: #99C5B1;
+    --green-3: #66A98A;
+    --green-4: #328C62;
+    --green-5: #00703C;
+    --green-6: #005930;
+    --green-7: #004324;
+    --green-8: #002C18;
+    --green-9: #00160C;
 
-    --amber-1: 1;
-    --amber-2: 2;
-    --amber-3: #BE6E3E;
-    --amber-4: 4;
-    --amber-5: 5;
+    --amber-1: #F2E2D8;
+    --amber-2: #E5C5B1;
+    --amber-3: #D8A88B;
+    --amber-4: #CB8B64;
+    --amber-5: #BE6E3E;
+    --amber-6: #985831;
+    --amber-7: #724225;
+    --amber-8: #4C2C18;
+    --amber-9: #26160C;
 
     /* theme colors */
     --primary-1: var(--green-1);

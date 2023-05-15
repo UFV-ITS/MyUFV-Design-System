@@ -71,7 +71,7 @@
 
         .color-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(9, 1fr);
             grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
             gap: var(--size-2);
         }
@@ -141,38 +141,115 @@
                 <p>Colors are defined in the <code>_variables.css</code> file. They are defined as CSS variables, so
                     they can be used in any CSS file.</p>
                 <div class="color-grid">
-                    <div class="color-grid__item"><span style="background-color: var(--gray-1);"></span>--gray-1</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-2);"></span>--gray-2</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-3);"></span>--gray-3</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-4);"></span>-gray-4</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-5);"></span>--gray-5</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-6);"></span>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-1);"></span>
+                        --gray-1
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-2);"></span>
+                        --gray-2
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-3);"></span>
+                        --gray-3
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-4);"></span>
+                        --gray-4
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-5);"></span>
+                        --gray-5
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-6);"></span>
                         --gray-6
                     </div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-7);"></span>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-7);"></span>
                         --gray-7
                     </div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-1);"></span>--gray-1</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-2);"></span>--gray-2</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-3);"></span>--gray-3</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-4);"></span>-gray-4</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-5);"></span>--gray-5</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-6);"></span>
-                        --gray-6
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-8);"></span>
+                        --gray-8
                     </div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-7);"></span>
-                        --gray-7
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-9);"></span>
+                        --gray-9
                     </div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-1);"></span>--gray-1</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-2);"></span>--gray-2</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-3);"></span>--gray-3</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-4);"></span>-gray-4</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-5);"></span>--gray-5</div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-6);"></span>
-                        --gray-6
+
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--amber-1);"></span>
+                        --amber-1
                     </div>
-                    <div class="color-grid__item"><span style="background-color: var(--gray-7);"></span>
-                        --gray-7
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--amber-2);"></span>
+                        --amber-2
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--amber-3);"></span>
+                        --amber-3
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--amber-4);"></span>
+                        --amber-4
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--amber-5);"></span>
+                        --amber-5
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--amber-6);"></span>
+                        --amber-6
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--amber-7);"></span>
+                        --amber-7
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--amber-8);"></span>
+                        --amber-8
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--amber-9);"></span>
+                        --amber-9
+                    </div>
+
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--green-1);"></span>
+                        --green-1
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--green-2);"></span>
+                        --green-2
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--green-3);"></span>
+                        --green-3
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--green-4);"></span>
+                        --green-4
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--green-5);"></span>
+                        --green-5
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--green-6);"></span>
+                        --green-6
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--green-7);"></span>
+                        --green-7
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--green-8);"></span>
+                        --green-8
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--green-9);"></span>
+                        --green-9
                     </div>
                 </div>
                 <p>You can access colors through CSS Properties (also known as CSS variables). For example, to use
@@ -188,18 +265,11 @@
             </article>
 
             <article>
-                <h3>Shadows</h3>
-            </article>
-
-            <article>
                 <h3>Icons</h3>
-                <p>We primarily use font-awesome icons throughout the application. As a fallback, we also use icons from
+                <p>We primarily use <a href="https://fontawesome.com/">font-awesome icons</a> throughout the
+                    application. As a fallback, we also use icons from
                     Ellucian's design system.</p>
                 <p>If you choose to use font-awesome, you'll have to get your own license here.</p>
-            </article>
-
-            <article>
-                <h3>Misc utilities</h3>
             </article>
         </section>
 
@@ -300,7 +370,7 @@
             </article>
         </section>
     </main>
-    <footer>
+    <footer class="main-container">
         <p>MyUFV Design System Examples</p>
     </footer>
 </body>
