@@ -19,6 +19,51 @@
 
         body {
             margin: 0px;
+            background: var(--gray-1);
+        }
+
+        h2 {
+            position: sticky;
+            top: 0;
+            background: var(--gray-1);
+            margin: var(--size-8) 0 var(--size-2) 0;
+            padding: var(--size-2) 0 var(--size-2) 0;
+            font-size: var(--font-size-6);
+            border-bottom: 1px solid var(--green-2);
+            z-index: var(--layer-top);
+        }
+
+        h3 {
+            position: sticky;
+            top: calc((var(--size-8) + var(--size-2)) - var(--size-5));
+            background: white;
+            margin: var(--size-5) 0 var(--size-2) 0;
+            padding: var(--size-2) 0 var(--size-2) 0;
+            font-size: var(--font-size-4);
+            border-bottom: 1px solid var(--green-1);
+            z-index: var(--layer-4);
+        }
+
+        h4 {
+            margin: var(--size-5) 0 var(--size-1) 0;
+            padding: 0 0 var(--size-1) 0;
+            font-size: var(--font-size-3);
+            border-bottom: 1px solid var(--green-1);
+            z-index: var(--layer-3);
+        }
+
+        p {
+            line-height: var(--size-4);
+        }
+
+        code {
+            font-family: monospace;
+            font-size: var(--font-size-1);
+            background: var(--gray-2);
+            border: 1px solid var(--gray-3);
+            color: var(--gray-6);
+            padding: var(--size-0);
+            border-radius: var(--size-0);
         }
 
         .main-container {
@@ -63,17 +108,23 @@
             border-radius: 4px;
             background: white;
             margin: 0 var(--size-3) 0 0;
-            border-top: 1rem solid #00703C;
+            border-top: 1rem solid var(--green-5);
             box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 5px 8px 0px, rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;
         }
 
         /* color grids */
-
         .color-grid {
             display: grid;
             grid-template-columns: repeat(9, 1fr);
             grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
             gap: var(--size-2);
+        }
+
+        @media screen and (max-width: 1000px) {
+            .color-grid {
+                grid-template-columns: repeat(9, calc(var(--size-9)));
+                overflow-x: scroll;
+            }
         }
 
         .color-grid .color-grid__item {
@@ -89,7 +140,20 @@
             border-radius: 4px;
         }
 
+        /* sizing elements  */
+        .size-showcase {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: var(--size-3);
+        }
 
+        .size-showcase span {
+            display: block;
+            background: var(--green-5);
+            height: var(--size-5);
+            border-radius: 4px;
+        }
 
         /* component grids */
         .grid {
@@ -128,18 +192,30 @@
     <main class="main-container">
         <section>
             <h2>Introduction</h2>
-            <p>This page is meant as a reference point for the MyUFV design system.</p>
+            <p>This page is meant as a reference for the MyUFV design system and CSS files.</p>
             <p>It is meant to be a living document, and will be updated as the design system evolves. We should treat
-                this page and the style sheets in this repo as our source of truth for MyUFV styling.</p>
+                this page and the style sheets in this repository as our source of truth for MyUFV styling.</p>
+            <p>You can find the CSS stylesheets in our <a href="https://github.com/UFV-ITS/MyUFV-Design-System">GitHub
+                    repository</a>
+            </p>
         </section>
 
         <section>
-            <h2>Primitives</h2>
+            <h2>Variables & Tokens</h2>
+            <p>This section reviews the variables and design tokens that can be found in <code>_variables.css</code>.
+            </p>
+            <p><code>_variables.css</code> includes a few CSS resets, and a bunch of re-usable design tokens in the form
+                of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS Custom
+                    Properties</a> (aka CSS Variables). By using CSS Variables we're able to standardize colors, fonts,
+                sizes, and other pieces of our design language.</p>
+
+            <p>If you're interested in learning more about Design Tokens, <a
+                    href="https://specifyapp.com/blog/introduction-to-design-tokens">you can read this article for an
+                    overview</a>.</p>
 
             <article>
                 <h3>Colors</h3>
-                <p>Colors are defined in the <code>_variables.css</code> file. They are defined as CSS variables, so
-                    they can be used in any CSS file.</p>
+                <p>Colors are defined in the <code>_variables.css</code> file.</p>
                 <div class="color-grid">
                     <div class="color-grid__item">
                         <span style="background-color: var(--gray-1);"></span>
@@ -258,10 +334,93 @@
 
             <article>
                 <h3>Typography</h3>
+                <p>Here are some examples of typography using our font tokens</p>
+                <h4>Font Sizes</h4>
+                <p style="margin: 0; font-size: var(--font-size-8); line-height: 1.5em;">
+                    --font-size-8: 3.5rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-7); line-height: 1.5em;">
+                    --font-size-7: 3rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-6); line-height: 1.5em;">
+                    --font-size-6: 2.5rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-5); line-height: 1.5em;">
+                    --font-size-5: 2rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-4); line-height: 1.5em;">
+                    --font-size-4: 1.5rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-3); line-height: 1.5em;">
+                    --font-size-3: 1.25rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-2); line-height: 1.5em;">
+                    --font-size-2: 1.1rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-1); line-height: 1.5em;">
+                    --font-size-1: 1rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-0); line-height: 1.5em;">
+                    --font-size-0: 0.75rem;
+                </p>
+
+                <h4>Font Weights</h4>
+                <p style="font-weight: var(--font-weight-heading);">--font-weight-heading: 900</p>
+                <p style="font-weight: var(--font-weight-body);">--font-weight-body: 400</p>
+
+                <h4>Font Family</h4>
+                <p>--font-family-heading: 'Open Sans', sans-serif;</p>
+                <p>--font-family-body: 'Open Sans', sans-serif;</p>
             </article>
 
             <article>
                 <h3>Spacing</h3>
+                <div class="size-showcase">
+                    <div>
+                        <span style="width: var(--size-0);"></span>
+                        --size-0
+                    </div>
+                    <div>
+                        <span style="width: var(--size-1);"></span>
+                        --size-1
+                    </div>
+                    <div>
+                        <span style="width: var(--size-2);"></span>
+                        --size-2
+                    </div>
+                    <div>
+                        <span style="width: var(--size-3);"></span>
+                        --size-3
+                    </div>
+                    <div>
+                        <span style="width: var(--size-4);"></span>
+                        --size-4
+                    </div>
+                    <div>
+                        <span style="width: var(--size-5);"></span>
+                        --size-5
+                    </div>
+                    <div>
+                        <span style="width: var(--size-6);"></span>
+                        --size-6
+                    </div>
+                    <div>
+                        <span style="width: var(--size-7);"></span>
+                        --size-7
+                    </div>
+                    <div>
+                        <span style="width: var(--size-8);"></span>
+                        --size-8
+                    </div>
+                    <div>
+                        <span style="width: var(--size-9);"></span>
+                        --size-9
+                    </div>
+                    <div>
+                        <span style="width: var(--size-10);"></span>
+                        --size-10
+                    </div>
+                </div>
             </article>
 
             <article>
@@ -269,7 +428,6 @@
                 <p>We primarily use <a href="https://fontawesome.com/">font-awesome icons</a> throughout the
                     application. As a fallback, we also use icons from
                     Ellucian's design system.</p>
-                <p>If you choose to use font-awesome, you'll have to get your own license here.</p>
             </article>
         </section>
 
@@ -277,7 +435,9 @@
             <h2>Components</h2>
             <p>Components are pre-built user interfaces that can be edited and dropped into our MyUFV components as
                 needed. To keep things consistent, we've documented a few of them here.</p>
-            <p></p>
+            <p>
+                These components rely on the CSS Custom Properties in <code>_variables.css</code> to remain consistent.
+            </p>
 
             <article>
                 <h3>Card Templates</h3>

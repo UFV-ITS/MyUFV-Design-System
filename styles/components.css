@@ -26,8 +26,12 @@ and pages. it depends on _variables.css */
 }
 
 .card__button h3 {
-    font-size: var(--font-size-5);
+    font-size: var(--font-size-4);
     margin: var(--size-4) 0 0 0;
+}
+
+.card__button p {
+    margin: var(--size-3) 0 var(--size-1) 0;
 }
 
 .card__button__content {
@@ -101,8 +105,6 @@ and pages. it depends on _variables.css */
     background-repeat: no-repeat;
 }
 
-
-
 .card__button--hero .card__button__content {
     text-shadow: 1px 1px 2px #000000;
     display: grid;
@@ -159,16 +161,17 @@ and pages. it depends on _variables.css */
 
 .card__links__list-item a {
     display: flex;
+    align-items: center;
     gap: 0.6em;
     padding: 1.0em;
-    background: #f5f5f5;
+    background: var(--gray-1);
     border-top-right-radius: 15px;
     border-bottom-right-radius: 15px;
-    border-left: 4px solid #be6e3e;
+    border-left: 4px solid var(--amber-5);
     overflow: hidden;
     text-decoration: none;
     font-weight: bold;
-    color: #00703c;
+    color: var(--green-5);
 }
 
 .card__links__list-item a:hover {
@@ -177,15 +180,15 @@ and pages. it depends on _variables.css */
 
 .card__links__list-item a:hover .card__links__list-item__text {
     text-decoration: underline;
-    color: #403f3f;
+    color: var(--amber-8);
 }
 
 .card__links__list-item a span[aria-label="icon"] {
     display: block;
-    color: #444;
+    color: var(--amber-9);
 }
 
 .card__links__list-item a:hover span[aria-label="icon"] {
-    color: #8DC63F;
+    color: var(--amber-5);
     text-decoration: none;
 }
