@@ -93,6 +93,17 @@ It can be used independently of the other files, but it is a dependency at the t
 
     /* shadows */
 
+    /* BORDERS */
+    /* border radius */
+    --border-radius-1: 4px;
+    --border-radius-2: 6px;
+    --border-radius-3: 10px;
+    --border-radius-4: 18px;
+    --border-radius-5: 26px;
+
+    /* MISCELLANEOUS */
+    --transition-duration: 0.3s;
+
     /* z-indexes */
     --layer-bottom: 0;
     --layer-1: 1;

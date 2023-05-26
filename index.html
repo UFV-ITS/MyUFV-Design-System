@@ -22,7 +22,7 @@
             background: var(--gray-1);
         }
 
-        h2 {
+        .main-container section>h2 {
             position: sticky;
             top: 0;
             background: var(--gray-1);
@@ -33,7 +33,7 @@
             z-index: var(--layer-top);
         }
 
-        h3 {
+        .main-container article>h3 {
             position: sticky;
             top: calc((var(--size-8) + var(--size-2)) - var(--size-5));
             background: white;
@@ -44,7 +44,7 @@
             z-index: var(--layer-4);
         }
 
-        h4 {
+        .main-container article>h4 {
             margin: var(--size-5) 0 var(--size-1) 0;
             padding: 0 0 var(--size-1) 0;
             font-size: var(--font-size-3);
@@ -52,7 +52,7 @@
             z-index: var(--layer-3);
         }
 
-        p {
+        .main-container p {
             line-height: var(--size-4);
         }
 
@@ -160,7 +160,6 @@
             display: grid;
             grid-gap: 1em;
             grid-template-columns: repeat(auto-fit, minmax(auto, 420px));
-            grid-template-rows: repeat(auto-fit, minmax(auto, 290px));
         }
 
         .grid>* {
@@ -375,6 +374,7 @@
 
             <article>
                 <h3>Spacing</h3>
+                <p>These spaces can be used for margins, paddings, and even sizes.</p>
                 <div class="size-showcase">
                     <div>
                         <span style="width: var(--size-0);"></span>
@@ -447,7 +447,7 @@
                     <!-- Button Card: Light -->
                     <div class="card card__button card__button--light">
                         <div class="card__button__content">
-                            <span class="icon fa fa-fw fa-3x fa-solid fa-user-gear"></span>
+                            <span class="icon fa fa-fw fa-3x fa-solid fa-circle-check"></span>
                             <ul>
                                 <li>This is a "button card"</li>
                                 <li>It is used to link to a secondary site / location</li>
@@ -462,6 +462,22 @@
 
                     <!-- Button Card: Dark  -->
                     <div class="card card__button card__button--dark">
+                        <div class="card__button__content">
+                            <span class="icon fa fa-fw fa-3x fa-solid fa-user-gear"></span>
+                            <p>
+                                You can also put <strong>Text Content</strong> into these button cards.
+                                This is useful for when you want to have more of a conversational tone
+                                or written content could better explain the purpose of the button.
+                            </p>
+                        </div>
+                        <div class="card__button__button">
+                            <a href="#" class="orange-button" target="_blank" title="do something here">do something
+                                here</a>
+                        </div>
+                    </div>
+
+                    <!-- Button Card: White  -->
+                    <div class="card card__button card__button--white">
                         <div class="card__button__content">
                             <span class="icon fa fa-fw fa-3x fa-solid fa-user-gear"></span>
                             <p>
@@ -493,33 +509,43 @@
                     <div class="card card__links">
                         <ul class="card__links__list">
                             <li class="card__links__list-item">
-                                <a href="">
-                                    <span aria-label="icon" contenteditable="false" role="region" tabindex="-1"
-                                        class="icon fa fa-fw fa-1x fa-solid fa-circle-check"></span>
-                                    <span class="card__links__list-item__text">This is a "links card"</span>
+                                <a
+                                    href="https://itservicedesk.ufv.ca/TDClient/52/ITServicesPortal/KB/ArticleDet?ID=1150">
+                                    <span
+                                        class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-envelope"></span>
+                                    <span class="card__links__list-item__content">How to access your UFV email</span>
+                                    <span
+                                        class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"></span>
                                 </a>
                             </li>
                             <li class="card__links__list-item">
-                                <a href="">
-                                    <span aria-label="icon" contenteditable="false" role="region" tabindex="-1"
-                                        class="icon fa fa-fw fa-1x fa-solid fa-user-gear"></span>
-                                    <span class="card__links__list-item__text">This is a "links card"</span>
+                                <a href="https://apps.ban.ufv.ca/StudentSelfService/ssb/requestPrintedTranscript">
+                                    <span class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-shield"></span>
+                                    <span class="card__links__list-item__content">How to change your UFV account
+                                        password</span>
+                                    <span
+                                        class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"></span>
                                 </a>
                             </li>
                             <li class="card__links__list-item">
-                                <a href="">
-                                    <span aria-label="icon" contenteditable="false" role="region" tabindex="-1"
-                                        class="icon fa fa-fw fa-1x fa-solid fa-calendar"></span>
-                                    <span class="card__links__list-item__text">This is a "links card"</span>
+                                <a href="#">
+                                    <span
+                                        class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-comments"></span>
+                                    <span class="card__links__list-item__content">ITS Help Desk</span>
+                                    <span
+                                        class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"></span>
                                 </a>
                             </li>
                             <li class="card__links__list-item">
-                                <a href="">
-                                    <span aria-label="icon" contenteditable="false" role="region" tabindex="-1"
-                                        class="icon fa fa-fw fa-1x fa-solid fa-user-gear"></span>
-                                    <span class="card__links__list-item__text">This is a "links card"</span>
+                                <a href="#">
+                                    <span
+                                        class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-circle-check"></span>
+                                    <span class="card__links__list-item__content">Something else that's helpful</span>
+                                    <span
+                                        class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"></span>
                                 </a>
                             </li>
+
                         </ul>
                     </div>
                 </div>
