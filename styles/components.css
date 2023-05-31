@@ -76,78 +76,78 @@ and pages. it depends on _variables.css */
     line-height: 1.6;
 }
 
-/* 1.1.1 CARD BUTTON: LIGHT GREEN */
+/* 1.1.1 CARD BUTTON: MINT */
 .card__button--light {
-    background: #daebbd;
-    color: #333333;
+    background: var(--mint-200);
+    color: var(--gray-900);
 }
 
 .card__button--light span.icon {
-    color: #00703c;
+    color: var(--pine-900);
 }
 
 .card__button--light .card__button__button a,
 .card__button--light .card__button__button button {
-    color: #00703c;
-    background: #daebbd;
-    border: 2px solid #00703c;
+    color: var(--pine-900);
+    background: var(--mint-200);
+    border: 2px solid var(--pine-900);
 }
 
 .card__button--light .card__button__button a:hover,
 .card__button--light .card__button__button button:hover {
-    background: #00703c;
-    color: #daebbd;
-    border: 2px solid #00703c;
+    background: var(--pine-900);
+    color: var(--mint-200);
+    border: 2px solid var(--pine-900);
 }
 
 /* 1.1.2 CARD BUTTON: DARK GREEN */
 
 .card__button--dark {
-    background: #00703c;
-    color: #daebbd;
+    background: var(--pine-900);
+    color: var(--mint-200);
 }
 
 .card__button--dark span.icon {
-    color: #daebbd;
+    color: var(--mint-200);
 }
 
 .card__button--dark .card__button__button a,
 .card__button--dark .card__button__button button {
-    color: #daebbd;
+    color: var(--mint-200);
     border-radius: 32px;
-    background: #00703c;
-    border: 2px solid #daebbd;
+    background: var(--pine-900);
+    border: 2px solid var(--mint-200);
 }
 
 .card__button--dark .card__button__button a:hover,
 .card__button--dark .card__button__button button:hover {
-    background: #daebbd;
-    color: #00703c;
+    background: var(--mint-200);
+    color: var(--pine-900);
 }
 
 /* 1.1.3 CARD BUTTON: White */
 
 .card__button--white {
     background: white;
-    color: var(--gray-8);
+    color: var(--gray-800);
 }
 
 .card__button--white span.icon {
-    color: #00703c;
+    color: var(--pine-900);
 }
 
 .card__button--white .card__button__button a,
 .card__button--white .card__button__button button {
-    color: #daebbd;
+    color: var(--mint-200);
     border-radius: 32px;
-    background: #00703c;
-    border: 2px solid #00703c;
+    background: var(--pine-900);
+    border: 2px solid var(--pine-900);
 }
 
 .card__button--white .card__button__button a:hover,
 .card__button--white .card__button__button button:hover {
     background: white;
-    color: #00703c;
+    color: var(--pine-900);
 }
 
 
@@ -155,7 +155,7 @@ and pages. it depends on _variables.css */
 .card__button--hero {
     position: relative;
     z-index: 0;
-    color: var(--gray-1);
+    color: var(--gray-50);
     background-image: var(--bg-image);
     background-position: center center;
     background-size: cover;
@@ -181,23 +181,24 @@ and pages. it depends on _variables.css */
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 60, 32, 0.7);
+    background: var(--pine-950);
+    opacity: 0.7;
     border-radius: 4px 4px 0px 0px;
     z-index: 1;
 }
 
 .card__button--hero .card__button__button a,
 .card__button--hero .card__button__button button {
-    color: #daebbd;
-    background: #00703c;
-    border: 2px solid #00703c;
+    color: var(--mint-200);
+    background: var(--pine-900);
+    border: 2px solid var(--pine-900);
 }
 
 .card__button--hero .card__button__button a:hover,
 .card__button--hero .card__button__button button:hover {
-    color: #00703c;
-    background: #daebbd;
-    border: 2px solid #daebbd;
+    color: var(--pine-900);
+    background: var(--mint-200);
+    border: 2px solid var(--mint-200);
 }
 
 /* 1.2 LINKS CARDS */
@@ -220,11 +221,11 @@ and pages. it depends on _variables.css */
 .card__links__list-item {
     display: flex;
     width: 100%;
-    border-top: 1px solid #daebbd;
+    border-top: 1px solid var(--mint-200);
 }
 
 .card__links__list-item:last-of-type {
-    border-bottom: 1px solid #daebbd;
+    border-bottom: 1px solid var(--mint-200);
 }
 
 .card__links__list-item a {
@@ -236,16 +237,16 @@ and pages. it depends on _variables.css */
     width: 100%;
     text-decoration: none;
     font-weight: bold;
-    color: #403f3f;
+    color: var(--pine-900);
 }
 
 .card__links__list-item a:hover {
-    background: #daebbd;
+    background: var(--mint-200);
 }
 
 .card__links__list-item:hover {
-    border-top: 1px solid rgba(0, 60, 32, 0.7);
-    border-bottom: 1px solid rgba(0, 60, 32, 0.7);
+    border-top: 1px solid var(--pine-900);
+    border-bottom: 1px solid var(--pine-900);
 }
 
 .card__links__list-item:hover+li {
@@ -254,7 +255,7 @@ and pages. it depends on _variables.css */
 
 .card__links__list-item__chevron {
     transition: transform 0.2s cubic-bezier(0, 0, .3, 1);
-    color: rgba(0, 60, 32, 1);
+    color: var(--pine-900);
 }
 
 .card__links__list-item a:hover .card__links__list-item__chevron {
@@ -262,10 +263,10 @@ and pages. it depends on _variables.css */
 }
 
 .card__links__list-item__icon {
-    color: #00703c;
+    color: var(--pine-900);
 }
 
 .card__links__list-item a:hover .card__links__list-item__content {
     text-decoration: underline;
-    color: #403f3f;
+    color: var(--gray-800);
 }
