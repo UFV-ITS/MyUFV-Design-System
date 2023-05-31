@@ -31,16 +31,6 @@ It can be used independently of the other files, but it is a dependency at the t
     --gray-900: #293836;
     --gray-950: #172423;
 
-    /* --green-1: #CCE2D8;
-    --green-2: #99C5B1;
-    --green-3: #66A98A;
-    --green-4: #328C62;
-    --green-5: #00703C;
-    --green-6: #005930;
-    --green-7: #004324;
-    --green-8: #002C18;
-    --green-9: #00160C; */
-
     --pine-50: #ecfff5;
     --pine-100: #d2ffea;
     --pine-200: #a8ffd6;
@@ -53,16 +43,6 @@ It can be used independently of the other files, but it is a dependency at the t
     --pine-900: #00703c;
     --pine-950: #003b1c;
 
-    /* --amber-1: #F2E2D8;
-    --amber-2: #E5C5B1;
-    --amber-3: #D8A88B;
-    --amber-4: #CB8B64;
-    --amber-5: #BE6E3E;
-    --amber-6: #985831;
-    --amber-7: #724225;
-    --amber-8: #4C2C18;
-    --amber-9: #26160C; */
-
     --mint-50: #f5f9ec;
     --mint-100: #e8f2d5;
     --mint-200: #daebbd;
@@ -74,11 +54,6 @@ It can be used independently of the other files, but it is a dependency at the t
     --mint-800: #3c5222;
     --mint-900: #344720;
     --mint-950: #19260d;
-
-    /* theme colors */
-    --primary-1: var(--green-1);
-    --secondary-1: var(--gray-1);
-    --accent-1: var(--amber-1);
 
     /* FONTS */
     /* font family */
@@ -117,6 +92,9 @@ It can be used independently of the other files, but it is a dependency at the t
     --size-8: 6rem;
     --size-9: 7.5rem;
     --size-10: 9rem;
+    --size-11: 12rem;
+    --size-12: 15rem;
+    --size-13: 20rem;
 
     /* shadows */
 

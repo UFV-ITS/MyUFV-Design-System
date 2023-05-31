@@ -10,22 +10,75 @@
     <link rel="stylesheet" href="./styles/_variables.css">
     <link rel="stylesheet" href="./styles/primitives.css">
     <link rel="stylesheet" href="./styles/components.css">
+    <!-- this is specific to this example file  -->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            // select card elements
+            const cardEls = [...document.querySelectorAll('.card')];
+            // loop through each card
+            cardEls.forEach((cardEl) => {
+                cardEl.addEventListener('click', async () => {
+                    if (navigator.clipboard) {
+                        await navigator.clipboard.writeText(cardEl.innerHTML);
+                        cardEl.classList.add('card--copied');
+                        setTimeout(() => {
+                            cardEl.classList.remove('card--copied');
+                        }, 1500);
+                    } else {
+                        alert('Your browser does not support copying to clipboard.');
+                    }
+                })
+            })
+        })
+    </script>
     <!-- this is specific to this example file -->
     <style>
         /* THESE STYLES ARE STRICTLY FOR THE PREVIEW PAGE */
         * {
+            box-sizing: border-box;
             font-family: var(--font-family-body);
         }
 
         body {
             margin: 0px;
-            background: var(--gray-1);
+            background: var(--gray-50);
+        }
+
+        .card {
+            /* overwriting iframe settings */
+            /* since cards are always in iframes, but aren't here, we need to overwrite some settings */
+            position: relative;
+            min-height: auto !important;
+            width: auto !important;
+        }
+
+        .card::before {
+            content: "Card Copied To Clipboard 📎";
+            font-weight: bold;
+            font-size: var(--font-size-3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: var(--size-8) var(--size-5);
+            text-align: center;
+            background: var(--pine-950);
+            color: var(--pine-50);
+            transition: all 0.2s ease-out;
+            border-radius: 4px;
+            opacity: 0;
+            z-index: 9999;
+        }
+
+        .card.card--copied::before {
+            opacity: 0.9;
         }
 
         .main-container section>h2 {
             position: sticky;
             top: 0;
-            background: var(--gray-1);
+            background: white;
             margin: var(--size-8) 0 var(--size-2) 0;
             padding: var(--size-2) 0 var(--size-2) 0;
             font-size: var(--font-size-6);
@@ -35,7 +88,7 @@
 
         .main-container article>h3 {
             position: sticky;
-            top: calc((var(--size-8) + var(--size-2)) - var(--size-5));
+            top: calc((var(--size-8) + var(--size-2)) - var(--size-6));
             background: white;
             margin: var(--size-5) 0 var(--size-2) 0;
             padding: var(--size-2) 0 var(--size-2) 0;
@@ -59,8 +112,8 @@
         code {
             font-family: monospace;
             font-size: var(--font-size-1);
-            background: var(--gray-2);
-            border: 1px solid var(--gray-3);
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
             color: var(--gray-6);
             padding: var(--size-0);
             border-radius: var(--size-0);
@@ -77,6 +130,11 @@
             max-width: 1100px;
             width: 100%;
             padding: 0 var(--size-3);
+        }
+
+        main.main-container>* {
+            background: white;
+            border-radius: 4px;
         }
 
         header {
@@ -115,14 +173,14 @@
         /* color grids */
         .color-grid {
             display: grid;
-            grid-template-columns: repeat(9, 1fr);
+            grid-template-columns: repeat(11, 1fr);
             grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
             gap: var(--size-2);
         }
 
         @media screen and (max-width: 1000px) {
             .color-grid {
-                grid-template-columns: repeat(9, calc(var(--size-9)));
+                grid-template-columns: repeat(11, calc(var(--size-8)));
                 overflow-x: scroll;
             }
         }
@@ -150,8 +208,8 @@
 
         .size-showcase span {
             display: block;
-            background: var(--green-5);
-            height: var(--size-5);
+            background: linear-gradient(90deg, var(--mint-700), var(--mint-800));
+            height: var(--size-6);
             border-radius: 4px;
         }
 
@@ -217,118 +275,148 @@
                 <p>Colors are defined in the <code>_variables.css</code> file.</p>
                 <div class="color-grid">
                     <div class="color-grid__item">
-                        <span style="background-color: var(--gray-1);"></span>
-                        --gray-1
+                        <span style="background-color: var(--gray-50);"></span>
+                        gray-50
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--gray-2);"></span>
-                        --gray-2
+                        <span style="background-color: var(--gray-100);"></span>
+                        gray-100
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--gray-3);"></span>
-                        --gray-3
+                        <span style="background-color: var(--gray-200);"></span>
+                        gray-200
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--gray-4);"></span>
-                        --gray-4
+                        <span style="background-color: var(--gray-300);"></span>
+                        gray-300
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--gray-5);"></span>
-                        --gray-5
+                        <span style="background-color: var(--gray-400);"></span>
+                        gray-400
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--gray-6);"></span>
-                        --gray-6
+                        <span style="background-color: var(--gray-500);"></span>
+                        gray-500
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--gray-7);"></span>
-                        --gray-7
+                        <span style="background-color: var(--gray-600);"></span>
+                        gray-600
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--gray-8);"></span>
-                        --gray-8
+                        <span style="background-color: var(--gray-700);"></span>
+                        gray-700
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--gray-9);"></span>
-                        --gray-9
-                    </div>
-
-                    <div class="color-grid__item">
-                        <span style="background-color: var(--amber-1);"></span>
-                        --amber-1
+                        <span style="background-color: var(--gray-800);"></span>
+                        gray-800
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--amber-2);"></span>
-                        --amber-2
+                        <span style="background-color: var(--gray-900);"></span>
+                        gray-900
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--amber-3);"></span>
-                        --amber-3
-                    </div>
-                    <div class="color-grid__item">
-                        <span style="background-color: var(--amber-4);"></span>
-                        --amber-4
-                    </div>
-                    <div class="color-grid__item">
-                        <span style="background-color: var(--amber-5);"></span>
-                        --amber-5
-                    </div>
-                    <div class="color-grid__item">
-                        <span style="background-color: var(--amber-6);"></span>
-                        --amber-6
-                    </div>
-                    <div class="color-grid__item">
-                        <span style="background-color: var(--amber-7);"></span>
-                        --amber-7
-                    </div>
-                    <div class="color-grid__item">
-                        <span style="background-color: var(--amber-8);"></span>
-                        --amber-8
-                    </div>
-                    <div class="color-grid__item">
-                        <span style="background-color: var(--amber-9);"></span>
-                        --amber-9
+                        <span style="background-color: var(--gray-950);"></span>
+                        gray-950
                     </div>
 
                     <div class="color-grid__item">
-                        <span style="background-color: var(--green-1);"></span>
-                        --green-1
+                        <span style="background-color: var(--mint-50);"></span>
+                        mint-50
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--green-2);"></span>
-                        --green-2
+                        <span style="background-color: var(--mint-100);"></span>
+                        mint-100
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--green-3);"></span>
-                        --green-3
+                        <span style="background-color: var(--mint-200);"></span>
+                        mint-200
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--green-4);"></span>
-                        --green-4
+                        <span style="background-color: var(--mint-300);"></span>
+                        mint-300
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--green-5);"></span>
-                        --green-5
+                        <span style="background-color: var(--mint-400);"></span>
+                        mint-400
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--green-6);"></span>
-                        --green-6
+                        <span style="background-color: var(--mint-500);"></span>
+                        mint-500
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--green-7);"></span>
-                        --green-7
+                        <span style="background-color: var(--mint-600);"></span>
+                        mint-600
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--green-8);"></span>
-                        --green-8
+                        <span style="background-color: var(--mint-700);"></span>
+                        mint-700
                     </div>
                     <div class="color-grid__item">
-                        <span style="background-color: var(--green-9);"></span>
-                        --green-9
+                        <span style="background-color: var(--mint-800);"></span>
+                        mint-800
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-900);"></span>
+                        mint-900
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-950);"></span>
+                        mint-950
+                    </div>
+
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-50);"></span>
+                        pine-50
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-100);"></span>
+                        pine-100
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-200);"></span>
+                        pine-200
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-300);"></span>
+                        pine-300
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-400);"></span>
+                        pine-400
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-500);"></span>
+                        pine-500
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-600);"></span>
+                        pine-600
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-700);"></span>
+                        pine-700
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-800);"></span>
+                        pine-800
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-900);"></span>
+                        pine-900
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-950);"></span>
+                        pine-950
                     </div>
                 </div>
+                <h4>Using colors in CSS</h4>
                 <p>You can access colors through CSS Properties (also known as CSS variables). For example, to use
-                    gray-1 in your CSS just reference the function like var(--gray-1)</p>
+                    gray-1 in your CSS just reference the function like <code>background: var(--gray-100);</code></p>
+                <h4>Contrast and accessibility</h4>
+                <p>For accessibility reasons, we have to stick to AA contrast. <a
+                        href="https://uicolors.app/edit?sv1=gray:50-f5f8f7/100-ddeae6/200-bbd4ce/300-92b6af/400-6b968f/500-517b75/600-3f625d/700-35504d/800-2d423f/900-293836/950-172423;mint:50-f5f9ec/100-e8f2d5/200-daebbd/300-b4d680/400-99c358/500-7aa83a/600-5e852b/700-496625/800-3c5222/900-344720/950-19260d;pine:50-ecfff5/100-d2ffea/200-a8ffd6/300-65ffb8/400-1bff93/500-00f973/600-00d05b/700-00a24b/800-007e40/900-00703c/950-003b1c">Please
+                        review the contrast grids for
+                        these colors on uicolors.app for guidelines.</a></p>
             </article>
 
             <article>
@@ -378,49 +466,64 @@
                 <div class="size-showcase">
                     <div>
                         <span style="width: var(--size-0);"></span>
-                        --size-0
+                        size-0
                     </div>
                     <div>
                         <span style="width: var(--size-1);"></span>
-                        --size-1
+                        size-1
                     </div>
                     <div>
                         <span style="width: var(--size-2);"></span>
-                        --size-2
+                        size-2
                     </div>
                     <div>
                         <span style="width: var(--size-3);"></span>
-                        --size-3
+                        size-3
                     </div>
                     <div>
                         <span style="width: var(--size-4);"></span>
-                        --size-4
+                        size-4
                     </div>
                     <div>
                         <span style="width: var(--size-5);"></span>
-                        --size-5
+                        size-5
                     </div>
                     <div>
                         <span style="width: var(--size-6);"></span>
-                        --size-6
+                        size-6
                     </div>
                     <div>
                         <span style="width: var(--size-7);"></span>
-                        --size-7
+                        size-7
                     </div>
                     <div>
                         <span style="width: var(--size-8);"></span>
-                        --size-8
+                        size-8
                     </div>
                     <div>
                         <span style="width: var(--size-9);"></span>
-                        --size-9
+                        size-9
                     </div>
                     <div>
                         <span style="width: var(--size-10);"></span>
-                        --size-10
+                        size-10
+                    </div>
+                    <div>
+                        <span style="width: var(--size-11);"></span>
+                        size-11
+                    </div>
+                    <div>
+                        <span style="width: var(--size-12);"></span>
+                        size-12
+                    </div>
+                    <div>
+                        <span style="width: var(--size-13);"></span>
+                        size-13
                     </div>
                 </div>
+                <h4>Using spacing/sizes in CSS</h4>
+                <p>You can access these sizes through CSS Properties (also known as CSS variables). For example, to use
+                    size-5 in your CSS just reference the variable like <code>padding: var(--size-5);</code></p>
             </article>
 
             <article>
