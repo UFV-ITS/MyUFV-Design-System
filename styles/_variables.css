@@ -1,0 +1,119 @@
+/* 
+Variables: 
+
+This file contains all the variables that are used throughout the project.
+It can be used independently of the other files, but it is a dependency at the top of the styles/components.css and styles/primitives.css files.
+*/
+
+/* importing fonts */
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+
+/* basic CSS resets */
+* {
+    box-sizing: border-box;
+}
+
+
+:root {
+    /* COLORS */
+    /* https://uicolors.app/edit?sv1=gray:50-f5f8f7/100-ddeae6/200-bbd4ce/300-92b6af/400-6b968f/500-517b75/600-3f625d/700-35504d/800-2d423f/900-293836/950-172423;mint:50-f5f9ec/100-e8f2d5/200-daebbd/300-b4d680/400-99c358/500-7aa83a/600-5e852b/700-496625/800-3c5222/900-344720/950-19260d;pine:50-ecfff5/100-d2ffea/200-a8ffd6/300-65ffb8/400-1bff93/500-00f973/600-00d05b/700-00a24b/800-007e40/900-00703c/950-003b1c */
+    /* color scales */
+    --gray-50: #f5f8f7;
+    --gray-100: #ddeae6;
+    --gray-200: #bbd4ce;
+    --gray-300: #92b6af;
+    --gray-400: #6b968f;
+    --gray-500: #517b75;
+    --gray-600: #3f625d;
+    --gray-700: #35504d;
+    --gray-800: #2d423f;
+    --gray-900: #293836;
+    --gray-950: #172423;
+
+    --pine-50: #ecfff5;
+    --pine-100: #d2ffea;
+    --pine-200: #a8ffd6;
+    --pine-300: #65ffb8;
+    --pine-400: #1bff93;
+    --pine-500: #00f973;
+    --pine-600: #00d05b;
+    --pine-700: #00a24b;
+    --pine-800: #007e40;
+    --pine-900: #00703c;
+    --pine-950: #003b1c;
+
+    --mint-50: #f5f9ec;
+    --mint-100: #e8f2d5;
+    --mint-200: #daebbd;
+    --mint-300: #b4d680;
+    --mint-400: #99c358;
+    --mint-500: #7aa83a;
+    --mint-600: #5e852b;
+    --mint-700: #496625;
+    --mint-800: #3c5222;
+    --mint-900: #344720;
+    --mint-950: #19260d;
+
+    /* FONTS */
+    /* font family */
+    --font-family-heading: 'Open Sans', sans-serif;
+    --font-family-body: 'Open Sans', sans-serif;
+
+    /* font weight */
+    --font-weight-heading: 900;
+    --font-weight-body: 400;
+
+    /* font styles */
+    --font-style-heading: normal;
+    --font-style-body: normal;
+
+    /* font sizes */
+    --font-size-00: .5rem;
+    --font-size-0: .75rem;
+    --font-size-1: 1rem;
+    --font-size-2: 1.1rem;
+    --font-size-3: 1.25rem;
+    --font-size-4: 1.5rem;
+    --font-size-5: 2rem;
+    --font-size-6: 2.5rem;
+    --font-size-7: 3rem;
+    --font-size-8: 3.5rem;
+
+    /* SPACING & SIZING */
+    --size-0: .25rem;
+    --size-1: .5rem;
+    --size-2: .75rem;
+    --size-3: 1rem;
+    --size-4: 1.5rem;
+    --size-5: 1.75rem;
+    --size-6: 3rem;
+    --size-7: 4.5rem;
+    --size-8: 6rem;
+    --size-9: 7.5rem;
+    --size-10: 9rem;
+    --size-11: 12rem;
+    --size-12: 15rem;
+    --size-13: 20rem;
+
+    /* shadows */
+
+    /* BORDERS */
+    /* border radius */
+    --border-radius-1: 4px;
+    --border-radius-2: 6px;
+    --border-radius-3: 10px;
+    --border-radius-4: 18px;
+    --border-radius-5: 26px;
+
+    /* MISCELLANEOUS */
+    --transition-duration: 0.3s;
+
+    /* z-indexes */
+    --layer-bottom: 0;
+    --layer-1: 1;
+    --layer-2: 2;
+    --layer-3: 3;
+    --layer-4: 4;
+    --layer-top: 1000;
+}

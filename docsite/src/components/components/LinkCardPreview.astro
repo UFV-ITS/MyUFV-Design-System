@@ -1,0 +1,126 @@
+---
+import BrowserPreview from "../preview/BrowserPreview";
+const template = `<div class="card card__links">
+  <ul class="card__links__list">
+    <li class="card__links__list-item">
+      <a
+        href="#"
+      >
+        <span
+          class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-envelope"
+        ></span>
+        <span class="card__links__list-item__content"
+          >How to access your UFV email</span
+        >
+        <span
+          class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"
+        ></span>
+      </a>
+    </li>
+    <li class="card__links__list-item">
+      <a
+        href="#"
+      >
+        <span
+          class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-shield"
+        ></span>
+        <span class="card__links__list-item__content"
+          >How to change your UFV account password</span
+        >
+        <span
+          class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"
+        ></span>
+      </a>
+    </li>
+    <li class="card__links__list-item">
+      <a href="#">
+        <span
+          class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-comments"
+        ></span>
+        <span class="card__links__list-item__content">ITS Help Desk</span>
+        <span
+          class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"
+        ></span>
+      </a>
+    </li>
+    <li class="card__links__list-item">
+      <a href="#">
+        <span
+          class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-circle-check"
+        ></span>
+        <span class="card__links__list-item__content"
+          >Something else that's helpful</span
+        >
+        <span
+          class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"
+        ></span>
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+---
+
+<BrowserPreview title="Link Card" code={template} client:idle>
+  <div class="card card__links">
+    <ul class="card__links__list">
+      <li class="card__links__list-item">
+        <a href="#">
+          <span
+            class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-envelope"
+          ></span>
+          <span class="card__links__list-item__content"
+            >How to access your UFV email</span
+          >
+          <span
+            class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"
+          ></span>
+        </a>
+      </li>
+      <li class="card__links__list-item">
+        <a href="#">
+          <span
+            class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-shield"
+          ></span>
+          <span class="card__links__list-item__content"
+            >How to change your UFV account password</span
+          >
+          <span
+            class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"
+          ></span>
+        </a>
+      </li>
+      <li class="card__links__list-item">
+        <a href="#">
+          <span
+            class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-comments"
+          ></span>
+          <span class="card__links__list-item__content">ITS Help Desk</span>
+          <span
+            class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"
+          ></span>
+        </a>
+      </li>
+      <li class="card__links__list-item">
+        <a href="#">
+          <span
+            class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-circle-check"
+          ></span>
+          <span class="card__links__list-item__content"
+            >Something else that's helpful</span
+          >
+          <span
+            class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"
+          ></span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</BrowserPreview>
+
+<style>
+  .card {
+    max-width: 500px;
+    min-height: 290px;
+  }
+</style>

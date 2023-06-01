@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyUFV Design Systems Examples</title>
+    <!-- import relevant styles -->
+    <link rel="stylesheet" href="./styles/_variables.css">
+    <link rel="stylesheet" href="./styles/primitives.css">
+    <link rel="stylesheet" href="./styles/components.css">
+    <!-- this is specific to this example file  -->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', () => {
+            // select card elements
+            const cardEls = [...document.querySelectorAll('.card')];
+            // loop through each card
+            cardEls.forEach((cardEl) => {
+                cardEl.addEventListener('click', async () => {
+                    if (navigator.clipboard) {
+                        await navigator.clipboard.writeText(cardEl.innerHTML);
+                        cardEl.classList.add('card--copied');
+                        setTimeout(() => {
+                            cardEl.classList.remove('card--copied');
+                        }, 1500);
+                    } else {
+                        alert('Your browser does not support copying to clipboard.');
+                    }
+                })
+            })
+        })
+    </script>
+    <!-- this is specific to this example file -->
+    <style>
+        /* THESE STYLES ARE STRICTLY FOR THE PREVIEW PAGE */
+        * {
+            box-sizing: border-box;
+            font-family: var(--font-family-body);
+        }
+
+        body {
+            margin: 0px;
+            background: var(--gray-50);
+        }
+
+        .card {
+            /* overwriting iframe settings */
+            /* since cards are always in iframes, but aren't here, we need to overwrite some settings */
+            position: relative;
+            min-height: auto !important;
+            width: auto !important;
+        }
+
+        .card::before {
+            content: "Card Copied To Clipboard 📎";
+            font-weight: bold;
+            font-size: var(--font-size-3);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: var(--size-8) var(--size-5);
+            text-align: center;
+            background: var(--pine-950);
+            color: var(--pine-50);
+            transition: all 0.2s ease-out;
+            border-radius: 4px;
+            opacity: 0;
+            z-index: 9999;
+        }
+
+        .card.card--copied::before {
+            opacity: 0.9;
+        }
+
+        .main-container section>h2 {
+            position: sticky;
+            top: 0;
+            background: white;
+            margin: var(--size-8) 0 var(--size-2) 0;
+            padding: var(--size-2) 0 var(--size-2) 0;
+            font-size: var(--font-size-6);
+            border-bottom: 1px solid var(--green-2);
+            z-index: var(--layer-top);
+        }
+
+        .main-container article>h3 {
+            position: sticky;
+            top: calc((var(--size-8) + var(--size-2)) - var(--size-6));
+            background: white;
+            margin: var(--size-5) 0 var(--size-2) 0;
+            padding: var(--size-2) 0 var(--size-2) 0;
+            font-size: var(--font-size-4);
+            border-bottom: 1px solid var(--green-1);
+            z-index: var(--layer-4);
+        }
+
+        .main-container article>h4 {
+            margin: var(--size-5) 0 var(--size-1) 0;
+            padding: 0 0 var(--size-1) 0;
+            font-size: var(--font-size-3);
+            border-bottom: 1px solid var(--green-1);
+            z-index: var(--layer-3);
+        }
+
+        .main-container p {
+            line-height: var(--size-4);
+        }
+
+        code {
+            font-family: monospace;
+            font-size: var(--font-size-1);
+            background: var(--gray-50);
+            border: 1px solid var(--gray-100);
+            color: var(--gray-6);
+            padding: var(--size-0);
+            border-radius: var(--size-0);
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+
+        .main-container>* {
+            max-width: 1100px;
+            width: 100%;
+            padding: 0 var(--size-3);
+        }
+
+        main.main-container>* {
+            background: white;
+            border-radius: 4px;
+        }
+
+        header {
+            position: relative;
+            padding: var(--size-6) var(--size-3);
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.54) 0%, rgba(0, 0, 0, 0)), url(https://ufv.ca/bbstatic/bg.jpg);
+            background-size: cover;
+            background-position: center center;
+            min-height: 320px;
+            margin-bottom: 150px;
+        }
+
+        header img {
+            width: clamp(128px, 10vw, 164px);
+        }
+
+        header h1 {
+            margin-top: var(--size-2);
+        }
+
+        .header__content {
+            padding: 0;
+        }
+
+        .header__card {
+            position: absolute;
+            bottom: -120px;
+            padding: var(--size-5);
+            border-radius: 4px;
+            background: white;
+            margin: 0 var(--size-3) 0 0;
+            border-top: 1rem solid var(--green-5);
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px, rgba(0, 0, 0, 0.14) 0px 5px 8px 0px, rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;
+        }
+
+        /* color grids */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(11, 1fr);
+            grid-template-rows: repeat(auto-fill, minmax(auto, 1fr));
+            gap: var(--size-2);
+        }
+
+        @media screen and (max-width: 1000px) {
+            .color-grid {
+                grid-template-columns: repeat(11, calc(var(--size-8)));
+                overflow-x: scroll;
+            }
+        }
+
+        .color-grid .color-grid__item {
+            display: flex;
+            flex-direction: column;
+            gap: var(--size-1);
+            padding-bottom: var(--size-3);
+        }
+
+        .color-grid .color-grid__item span {
+            display: block;
+            padding: var(--size-5);
+            border-radius: 4px;
+        }
+
+        /* sizing elements  */
+        .size-showcase {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: var(--size-3);
+        }
+
+        .size-showcase span {
+            display: block;
+            background: linear-gradient(90deg, var(--mint-700), var(--mint-800));
+            height: var(--size-6);
+            border-radius: 4px;
+        }
+
+        /* component grids */
+        .grid {
+            display: grid;
+            grid-gap: 1em;
+            grid-template-columns: repeat(auto-fit, minmax(auto, 420px));
+        }
+
+        .grid>* {
+            position: relative;
+            max-width: 580px;
+            width: 100%;
+            max-height: 290px;
+            height: 100%;
+            /* border: 2px solid var(--gray-4); */
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.2);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-container">
+        <div class="header__logo">
+            <img src="https://ufv.ca/bbstatic/myufv.png" alt="My UFV Logo">
+        </div>
+        <div class="header__content">
+            <div class="header__card">
+                <small>Components, Colors, Fonts, etc.</small>
+                <h1>MyUFV Design System Examples</h1>
+                <p>Welcome to the MyUFV design system examples page.</p>
+            </div>
+        </div>
+    </header>
+    <main class="main-container">
+        <section>
+            <h2>Introduction</h2>
+            <p>This page is meant as a reference for the MyUFV design system and CSS files.</p>
+            <p>It is meant to be a living document, and will be updated as the design system evolves. We should treat
+                this page and the style sheets in this repository as our source of truth for MyUFV styling.</p>
+            <p>You can find the CSS stylesheets in our <a href="https://github.com/UFV-ITS/MyUFV-Design-System">GitHub
+                    repository</a>
+            </p>
+        </section>
+
+        <section>
+            <h2>Variables & Tokens</h2>
+            <p>This section reviews the variables and design tokens that can be found in <code>_variables.css</code>.
+            </p>
+            <p><code>_variables.css</code> includes a few CSS resets, and a bunch of re-usable design tokens in the form
+                of <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS Custom
+                    Properties</a> (aka CSS Variables). By using CSS Variables we're able to standardize colors, fonts,
+                sizes, and other pieces of our design language.</p>
+
+            <p>If you're interested in learning more about Design Tokens, <a
+                    href="https://specifyapp.com/blog/introduction-to-design-tokens">you can read this article for an
+                    overview</a>.</p>
+
+            <article>
+                <h3>Colors</h3>
+                <p>Colors are defined in the <code>_variables.css</code> file.</p>
+                <div class="color-grid">
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-50);"></span>
+                        gray-50
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-100);"></span>
+                        gray-100
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-200);"></span>
+                        gray-200
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-300);"></span>
+                        gray-300
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-400);"></span>
+                        gray-400
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-500);"></span>
+                        gray-500
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-600);"></span>
+                        gray-600
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-700);"></span>
+                        gray-700
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-800);"></span>
+                        gray-800
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-900);"></span>
+                        gray-900
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--gray-950);"></span>
+                        gray-950
+                    </div>
+
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-50);"></span>
+                        mint-50
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-100);"></span>
+                        mint-100
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-200);"></span>
+                        mint-200
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-300);"></span>
+                        mint-300
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-400);"></span>
+                        mint-400
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-500);"></span>
+                        mint-500
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-600);"></span>
+                        mint-600
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-700);"></span>
+                        mint-700
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-800);"></span>
+                        mint-800
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-900);"></span>
+                        mint-900
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--mint-950);"></span>
+                        mint-950
+                    </div>
+
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-50);"></span>
+                        pine-50
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-100);"></span>
+                        pine-100
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-200);"></span>
+                        pine-200
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-300);"></span>
+                        pine-300
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-400);"></span>
+                        pine-400
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-500);"></span>
+                        pine-500
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-600);"></span>
+                        pine-600
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-700);"></span>
+                        pine-700
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-800);"></span>
+                        pine-800
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-900);"></span>
+                        pine-900
+                    </div>
+                    <div class="color-grid__item">
+                        <span style="background-color: var(--pine-950);"></span>
+                        pine-950
+                    </div>
+                </div>
+                <h4>Using colors in CSS</h4>
+                <p>You can access colors through CSS Properties (also known as CSS variables). For example, to use
+                    gray-1 in your CSS just reference the function like <code>background: var(--gray-100);</code></p>
+                <h4>Contrast and accessibility</h4>
+                <p>For accessibility reasons, we have to stick to AA contrast. <a
+                        href="https://uicolors.app/edit?sv1=gray:50-f5f8f7/100-ddeae6/200-bbd4ce/300-92b6af/400-6b968f/500-517b75/600-3f625d/700-35504d/800-2d423f/900-293836/950-172423;mint:50-f5f9ec/100-e8f2d5/200-daebbd/300-b4d680/400-99c358/500-7aa83a/600-5e852b/700-496625/800-3c5222/900-344720/950-19260d;pine:50-ecfff5/100-d2ffea/200-a8ffd6/300-65ffb8/400-1bff93/500-00f973/600-00d05b/700-00a24b/800-007e40/900-00703c/950-003b1c">Please
+                        review the contrast grids for
+                        these colors on uicolors.app for guidelines.</a></p>
+            </article>
+
+            <article>
+                <h3>Typography</h3>
+                <p>Here are some examples of typography using our font tokens</p>
+                <h4>Font Sizes</h4>
+                <p style="margin: 0; font-size: var(--font-size-8); line-height: 1.5em;">
+                    --font-size-8: 3.5rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-7); line-height: 1.5em;">
+                    --font-size-7: 3rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-6); line-height: 1.5em;">
+                    --font-size-6: 2.5rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-5); line-height: 1.5em;">
+                    --font-size-5: 2rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-4); line-height: 1.5em;">
+                    --font-size-4: 1.5rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-3); line-height: 1.5em;">
+                    --font-size-3: 1.25rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-2); line-height: 1.5em;">
+                    --font-size-2: 1.1rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-1); line-height: 1.5em;">
+                    --font-size-1: 1rem;
+                </p>
+                <p style="margin: 0; font-size: var(--font-size-0); line-height: 1.5em;">
+                    --font-size-0: 0.75rem;
+                </p>
+
+                <h4>Font Weights</h4>
+                <p style="font-weight: var(--font-weight-heading);">--font-weight-heading: 900</p>
+                <p style="font-weight: var(--font-weight-body);">--font-weight-body: 400</p>
+
+                <h4>Font Family</h4>
+                <p>--font-family-heading: 'Open Sans', sans-serif;</p>
+                <p>--font-family-body: 'Open Sans', sans-serif;</p>
+            </article>
+
+            <article>
+                <h3>Spacing</h3>
+                <p>These spaces can be used for margins, paddings, and even sizes.</p>
+                <div class="size-showcase">
+                    <div>
+                        <span style="width: var(--size-0);"></span>
+                        size-0
+                    </div>
+                    <div>
+                        <span style="width: var(--size-1);"></span>
+                        size-1
+                    </div>
+                    <div>
+                        <span style="width: var(--size-2);"></span>
+                        size-2
+                    </div>
+                    <div>
+                        <span style="width: var(--size-3);"></span>
+                        size-3
+                    </div>
+                    <div>
+                        <span style="width: var(--size-4);"></span>
+                        size-4
+                    </div>
+                    <div>
+                        <span style="width: var(--size-5);"></span>
+                        size-5
+                    </div>
+                    <div>
+                        <span style="width: var(--size-6);"></span>
+                        size-6
+                    </div>
+                    <div>
+                        <span style="width: var(--size-7);"></span>
+                        size-7
+                    </div>
+                    <div>
+                        <span style="width: var(--size-8);"></span>
+                        size-8
+                    </div>
+                    <div>
+                        <span style="width: var(--size-9);"></span>
+                        size-9
+                    </div>
+                    <div>
+                        <span style="width: var(--size-10);"></span>
+                        size-10
+                    </div>
+                    <div>
+                        <span style="width: var(--size-11);"></span>
+                        size-11
+                    </div>
+                    <div>
+                        <span style="width: var(--size-12);"></span>
+                        size-12
+                    </div>
+                    <div>
+                        <span style="width: var(--size-13);"></span>
+                        size-13
+                    </div>
+                </div>
+                <h4>Using spacing/sizes in CSS</h4>
+                <p>You can access these sizes through CSS Properties (also known as CSS variables). For example, to use
+                    size-5 in your CSS just reference the variable like <code>padding: var(--size-5);</code></p>
+            </article>
+
+            <article>
+                <h3>Icons</h3>
+                <p>We primarily use <a href="https://fontawesome.com/">font-awesome icons</a> throughout the
+                    application. As a fallback, we also use icons from
+                    Ellucian's design system.</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Components</h2>
+            <p>Components are pre-built user interfaces that can be edited and dropped into our MyUFV components as
+                needed. To keep things consistent, we've documented a few of them here.</p>
+            <p>
+                These components rely on the CSS Custom Properties in <code>_variables.css</code> to remain consistent.
+            </p>
+
+            <article>
+                <h3>Card Templates</h3>
+                <p>Card templates are components that can be dropped into Ellucian Experience HTML / IFrame cards. These
+                    are useful for linking off to external resources or systems.</p>
+                <div class="grid">
+                    <!-- Button Card: Light -->
+                    <div class="card card__button card__button--light">
+                        <div class="card__button__content">
+                            <span class="icon fa fa-fw fa-3x fa-solid fa-circle-check"></span>
+                            <ul>
+                                <li>This is a "button card"</li>
+                                <li>It is used to link to a secondary site / location</li>
+                                <li>This list usually lists things at said location</li>
+                            </ul>
+                        </div>
+                        <div class="card__button__button">
+                            <a href="#" class="orange-button" target="_blank" title="do something here">do something
+                                here</a>
+                        </div>
+                    </div>
+
+                    <!-- Button Card: Dark  -->
+                    <div class="card card__button card__button--dark">
+                        <div class="card__button__content">
+                            <span class="icon fa fa-fw fa-3x fa-solid fa-user-gear"></span>
+                            <p>
+                                You can also put <strong>Text Content</strong> into these button cards.
+                                This is useful for when you want to have more of a conversational tone
+                                or written content could better explain the purpose of the button.
+                            </p>
+                        </div>
+                        <div class="card__button__button">
+                            <a href="#" class="orange-button" target="_blank" title="do something here">do something
+                                here</a>
+                        </div>
+                    </div>
+
+                    <!-- Button Card: White  -->
+                    <div class="card card__button card__button--white">
+                        <div class="card__button__content">
+                            <span class="icon fa fa-fw fa-3x fa-solid fa-user-gear"></span>
+                            <p>
+                                You can also put <strong>Text Content</strong> into these button cards.
+                                This is useful for when you want to have more of a conversational tone
+                                or written content could better explain the purpose of the button.
+                            </p>
+                        </div>
+                        <div class="card__button__button">
+                            <a href="#" class="orange-button" target="_blank" title="do something here">do something
+                                here</a>
+                        </div>
+                    </div>
+
+                    <!-- Button Card: Hero  -->
+                    <div class="card card__button card__button--hero"
+                        style="--bg-image: url(https://live.staticflickr.com/65535/52862915746_b0210a9e6a_h.jpg)">
+                        <div class="card__button__content">
+                            <h3>This is a Button Card Hero</h3>
+                            <p>It has a heading, and text content within. It also has a photo background.</p>
+                        </div>
+                        <div class="card__button__button">
+                            <a href="#" class="orange-button" target="_blank" title="do something here">do something
+                                here</a>
+                        </div>
+                    </div>
+
+                    <!-- Links Card   -->
+                    <div class="card card__links">
+                        <ul class="card__links__list">
+                            <li class="card__links__list-item">
+                                <a
+                                    href="https://itservicedesk.ufv.ca/TDClient/52/ITServicesPortal/KB/ArticleDet?ID=1150">
+                                    <span
+                                        class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-envelope"></span>
+                                    <span class="card__links__list-item__content">How to access your UFV email</span>
+                                    <span
+                                        class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"></span>
+                                </a>
+                            </li>
+                            <li class="card__links__list-item">
+                                <a href="https://apps.ban.ufv.ca/StudentSelfService/ssb/requestPrintedTranscript">
+                                    <span class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-shield"></span>
+                                    <span class="card__links__list-item__content">How to change your UFV account
+                                        password</span>
+                                    <span
+                                        class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"></span>
+                                </a>
+                            </li>
+                            <li class="card__links__list-item">
+                                <a href="#">
+                                    <span
+                                        class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-comments"></span>
+                                    <span class="card__links__list-item__content">ITS Help Desk</span>
+                                    <span
+                                        class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"></span>
+                                </a>
+                            </li>
+                            <li class="card__links__list-item">
+                                <a href="#">
+                                    <span
+                                        class="card__links__list-item__icon fa fa-fw fa-1x fa-solid fa-circle-check"></span>
+                                    <span class="card__links__list-item__content">Something else that's helpful</span>
+                                    <span
+                                        class="card__links__list-item__chevron fa fa-fw fa-1x fa-solid fa-chevron-right"></span>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article>
+                <h3></h3>
+            </article>
+        </section>
+    </main>
+    <footer class="main-container">
+        <p>MyUFV Design System Examples</p>
+    </footer>
+</body>
+
+</html>
