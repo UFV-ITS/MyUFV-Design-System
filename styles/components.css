@@ -74,6 +74,11 @@ and pages. it depends on _variables.css */
     text-decoration: none !important;
 }
 
+.card__button ul {
+    width: 100%;
+    padding-inline-start: 25px;
+}
+
 .card__button ul li {
     line-height: 1.6;
 }
