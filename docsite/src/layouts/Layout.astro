@@ -1,5 +1,7 @@
 ---
+import DevStyles from "../components/DevStyles.astro";
 import PageHeader from "../components/PageHeader.astro";
+import ProdStyles from "../components/ProdStyles.astro";
 
 export interface Props {
   title: string;
@@ -18,24 +20,7 @@ const { title } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>MyUFV Design System: {title}</title>
     <!-- import CSS -->
-    <link
-      rel="stylesheet"
-      href={`https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
-        import.meta.env.PUBLIC_BRANCH || "main"
-      }/styles/_variables.css`}
-    />
-    <link
-      rel="stylesheet"
-      href={`https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
-        import.meta.env.PUBLIC_BRANCH || "main"
-      }/styles/components.css`}
-    />
-    <link
-      rel="stylesheet"
-      href={`https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
-        import.meta.env.PUBLIC_BRANCH || "main"
-      }/styles/primitives.css`}
-    />
+    {import.meta.env.DEV == true ? <DevStyles /> : <ProdStyles />}
   </head>
   <body>
     <PageHeader title={title} />
