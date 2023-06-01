@@ -1,0 +1,44 @@
+---
+import BrowserPreview from "../preview/BrowserPreview";
+const template = `<div class="card card__button card__button--light">
+  <div class="card__button__content">
+    <span class="icon fa fa-fw fa-3x fa-solid fa-circle-check"></span>
+    <ul>
+      <li>This is a "button card"</li>
+      <li>It is used to link to a secondary site / location</li>
+      <li>This list usually lists things at said location</li>
+    </ul>
+  </div>
+  <div class="card__button__button">
+    <a href="#" class="" target="_blank" title="do something here"
+      >do something here</a
+    >
+  </div>
+</div>
+`;
+---
+
+<BrowserPreview title="Button Card: Light" code={template} client:idle>
+  <div class="card card__button card__button--light">
+    <div class="card__button__content">
+      <span class="icon fa fa-fw fa-3x fa-solid fa-circle-check"></span>
+      <ul>
+        <li>This is a "button card"</li>
+        <li>It is used to link to a secondary site / location</li>
+        <li>This list usually lists things at said location</li>
+      </ul>
+    </div>
+    <div class="card__button__button">
+      <a href="#" class="" target="_blank" title="do something here"
+        >do something here</a
+      >
+    </div>
+  </div>
+</BrowserPreview>
+
+<style>
+  .card {
+    max-width: 500px;
+    min-height: 290px;
+  }
+</style>

@@ -1,0 +1,79 @@
+---
+// build time stuff goes here
+---
+
+<div class="size-showcase">
+  <div>
+    <span style="width: var(--size-0);"></span>
+    size-0
+  </div>
+  <div>
+    <span style="width: var(--size-1);"></span>
+    size-1
+  </div>
+  <div>
+    <span style="width: var(--size-2);"></span>
+    size-2
+  </div>
+  <div>
+    <span style="width: var(--size-3);"></span>
+    size-3
+  </div>
+  <div>
+    <span style="width: var(--size-4);"></span>
+    size-4
+  </div>
+  <div>
+    <span style="width: var(--size-5);"></span>
+    size-5
+  </div>
+  <div>
+    <span style="width: var(--size-6);"></span>
+    size-6
+  </div>
+  <div>
+    <span style="width: var(--size-7);"></span>
+    size-7
+  </div>
+  <div>
+    <span style="width: var(--size-8);"></span>
+    size-8
+  </div>
+  <div>
+    <span style="width: var(--size-9);"></span>
+    size-9
+  </div>
+  <div>
+    <span style="width: var(--size-10);"></span>
+    size-10
+  </div>
+  <div>
+    <span style="width: var(--size-11);"></span>
+    size-11
+  </div>
+  <div>
+    <span style="width: var(--size-12);"></span>
+    size-12
+  </div>
+  <div>
+    <span style="width: var(--size-13);"></span>
+    size-13
+  </div>
+</div>
+
+<style>
+  /* sizing elements  */
+  .size-showcase {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--size-3);
+  }
+
+  .size-showcase span {
+    display: block;
+    background: linear-gradient(90deg, var(--mint-700), var(--mint-800));
+    height: var(--size-6);
+    border-radius: 4px;
+  }
+</style>

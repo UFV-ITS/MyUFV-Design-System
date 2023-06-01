@@ -1,0 +1,102 @@
+---
+import PageHeader from "../components/PageHeader.astro";
+
+export interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>MyUFV Design System: {title}</title>
+    <!-- import CSS -->
+    <link
+      rel="stylesheet"
+      href={`https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
+        import.meta.env.PUBLIC_BRANCH || "main"
+      }/styles/_variables.css`}
+    />
+    <link
+      rel="stylesheet"
+      href={`https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
+        import.meta.env.PUBLIC_BRANCH || "main"
+      }/styles/components.css`}
+    />
+    <link
+      rel="stylesheet"
+      href={`https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
+        import.meta.env.PUBLIC_BRANCH || "main"
+      }/styles/primitives.css`}
+    />
+  </head>
+  <body>
+    <PageHeader title={title} />
+    <slot />
+  </body>
+</html>
+<style is:global>
+  body {
+    margin: 0px;
+    font-family: var(--font-family-body);
+  }
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .main-container > * {
+    max-width: 1100px;
+    width: 100%;
+    padding: 0 var(--size-3);
+  }
+
+  main.main-container > * {
+    background: white;
+    border-radius: 4px;
+  }
+
+  .main-container section > h2 {
+    position: sticky;
+    top: 0;
+    background: white;
+    margin: var(--size-8) 0 var(--size-2) 0;
+    padding: var(--size-2) 0 var(--size-2) 0;
+    font-size: var(--font-size-6);
+    border-bottom: 1px solid var(--green-2);
+    z-index: var(--layer-top);
+  }
+
+  .main-container article > h3 {
+    position: sticky;
+    top: calc((var(--size-8) + var(--size-2)) - var(--size-6));
+    background: white;
+    margin: var(--size-5) 0 var(--size-2) 0;
+    padding: var(--size-2) 0 var(--size-2) 0;
+    font-size: var(--font-size-4);
+    border-bottom: 1px solid var(--green-1);
+    z-index: var(--layer-4);
+  }
+
+  .main-container article > h4 {
+    margin: var(--size-5) 0 var(--size-1) 0;
+    padding: 0 0 var(--size-1) 0;
+    font-size: var(--font-size-3);
+    border-bottom: 1px solid var(--green-1);
+    z-index: var(--layer-3);
+  }
+
+  .main-container p {
+    line-height: var(--size-4);
+  }
+</style>

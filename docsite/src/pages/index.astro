@@ -1,0 +1,267 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BrowserPreview from "../components/preview/BrowserPreview";
+import Section from "../components/Section.astro";
+import ButtonCardDarkPreview from "../components/components/ButtonCardDarkPreview.astro";
+import ButtonCardLightPreview from "../components/components/ButtonCardLightPreview.astro";
+import ButtonCardWhitePreview from "../components/components/ButtonCardWhitePreview.astro";
+import ButtonCardImagePreview from "../components/components/ButtonCardImagePreview.astro";
+import LinkCardPreview from "../components/components/LinkCardPreview.astro";
+import ColorGrid from "../components/grids/ColorGrid.astro";
+import SizingGrid from "../components/grids/SizingGrid.astro";
+
+const codeSnippets = {
+  link: `<!-- add this into your html <head /> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
+    import.meta.env.PUBLIC_BRANCH || "main"
+  }/styles/_variables.css" /> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
+    import.meta.env.PUBLIC_BRANCH || "main"
+  }/styles/components.css" /> 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
+    import.meta.env.PUBLIC_BRANCH || "main"
+  }/styles/primitives.css" />`,
+  import: `/* add this to your CSS file */
+@import(https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
+    import.meta.env.PUBLIC_BRANCH || "main"
+  }/styles/_variables.css');
+@import(https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
+    import.meta.env.PUBLIC_BRANCH || "main"
+  }/styles/components.css');
+@import(https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
+    import.meta.env.PUBLIC_BRANCH || "main"
+  }/styles/primitives.css');`,
+};
+---
+
+<Layout title="Home">
+  <main>
+    <Section>
+      <h2>Introduction</h2>
+      <p>This page is meant as a reference for the MyUFV design system.</p>
+      <p>
+        It is meant to be a living document, and will be updated as the design
+        system evolves. We should treat this page and the style sheets in this
+        repository as our source of truth for MyUFV styling.
+      </p>
+    </Section>
+    <Section>
+      <h2>Installation & Quick-Start</h2>
+      <p>
+        To get started with the variables, components, and primitives in the
+        design system, you just need to add links to our CSS files and start
+        using the design systems variables and classes
+      </p>
+      <p>
+        We use JSdelivr to serve our CSS files. JSdelivr is a free CDN that
+        serves and caches public GitHub code making it perfect for our usecases.
+      </p>
+      <BrowserPreview
+        title="Import with HTML <link />"
+        code={codeSnippets.link}
+        codeVisible={true}
+        client:idle
+      />
+      <BrowserPreview
+        title="Import with CSS @import"
+        code={codeSnippets.import}
+        codeVisible={true}
+        codeLanguage="css"
+        client:idle
+      />
+    </Section>
+    <Section>
+      <h2>Variables & Tokens</h2>
+      <p>
+        This section reviews the variables and design tokens that can be found
+        in <code>_variables.css</code>.
+      </p>
+      <p>
+        <code>_variables.css</code> includes a few CSS resets, and a bunch of re-usable
+        design tokens in the form of <a
+          href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties"
+          >CSS Custom Properties</a
+        > (aka CSS Variables). By using CSS Variables we're able to standardize colors,
+        fonts, sizes, and other pieces of our design language.
+      </p>
+      <h3>Colours</h3>
+      <p>Colours are defined in the <code>_variables.css</code> file.</p>
+      <ColorGrid />
+      <h4>Using Colours in CSS</h4>
+      <p>
+        Colours are defined as CSS Custom Properties, so you can use them
+        anywhere you would use a CSS variable.
+      </p>
+      <BrowserPreview
+        title={`Colours Example`}
+        code={`.my-class { 
+  color: var(--mint-900);
+  background: var(--mint-100);
+}`}
+        codeVisible={true}
+        codeLanguage="css"
+        client:load
+      >
+        <p style="color: var(--mint-900); background: var(--mint-100);">
+          my class is this
+        </p>
+      </BrowserPreview>
+      <h3>Typography</h3>
+      <p>Typography is defined in the <code>_variables.css</code> file.</p>
+      <BrowserPreview
+        code={`
+<p style="margin: 0; font-size: var(--font-size-8); line-height: 1.5em;">
+  --font-size-8: 3.5rem;
+</p>
+<p style="margin: 0; font-size: var(--font-size-7); line-height: 1.5em;">
+  --font-size-7: 3rem;
+</p>
+<p style="margin: 0; font-size: var(--font-size-6); line-height: 1.5em;">
+  --font-size-6: 2.5rem;
+</p>
+<p style="margin: 0; font-size: var(--font-size-5); line-height: 1.5em;">
+  --font-size-5: 2rem;
+</p>
+<p style="margin: 0; font-size: var(--font-size-4); line-height: 1.5em;">
+  --font-size-4: 1.5rem;
+</p>
+<p style="margin: 0; font-size: var(--font-size-3); line-height: 1.5em;">
+  --font-size-3: 1.25rem;
+</p>
+<p style="margin: 0; font-size: var(--font-size-2); line-height: 1.5em;">
+  --font-size-2: 1.1rem;
+</p>
+<p style="margin: 0; font-size: var(--font-size-1); line-height: 1.5em;">
+  --font-size-1: 1rem;
+</p>
+<p style="margin: 0; font-size: var(--font-size-0); line-height: 1.5em;">
+  --font-size-0: 0.75rem;
+</p>
+`}
+        title="Typography Examples"
+        client:idle
+      >
+        <p
+          style="margin: 0; font-size: var(--font-size-8); line-height: 1.5em;"
+        >
+          --font-size-8: 3.5rem;
+        </p>
+        <p
+          style="margin: 0; font-size: var(--font-size-7); line-height: 1.5em;"
+        >
+          --font-size-7: 3rem;
+        </p>
+        <p
+          style="margin: 0; font-size: var(--font-size-6); line-height: 1.5em;"
+        >
+          --font-size-6: 2.5rem;
+        </p>
+        <p
+          style="margin: 0; font-size: var(--font-size-5); line-height: 1.5em;"
+        >
+          --font-size-5: 2rem;
+        </p>
+        <p
+          style="margin: 0; font-size: var(--font-size-4); line-height: 1.5em;"
+        >
+          --font-size-4: 1.5rem;
+        </p>
+        <p
+          style="margin: 0; font-size: var(--font-size-3); line-height: 1.5em;"
+        >
+          --font-size-3: 1.25rem;
+        </p>
+        <p
+          style="margin: 0; font-size: var(--font-size-2); line-height: 1.5em;"
+        >
+          --font-size-2: 1.1rem;
+        </p>
+        <p
+          style="margin: 0; font-size: var(--font-size-1); line-height: 1.5em;"
+        >
+          --font-size-1: 1rem;
+        </p>
+        <p
+          style="margin: 0; font-size: var(--font-size-0); line-height: 1.5em;"
+        >
+          --font-size-0: 0.75rem;
+        </p>
+      </BrowserPreview>
+      <BrowserPreview
+        title="Font-weight Examples"
+        code={`<p style="font-weight: var(--font-weight-heading);">--font-weight-heading: 900</p>
+<p style="font-weight: var(--font-weight-body);">--font-weight-body: 400</p>`}
+        client:idle
+      >
+        <p style="font-weight: var(--font-weight-heading);">
+          --font-weight-heading: 900
+        </p>
+        <p style="font-weight: var(--font-weight-body);">
+          --font-weight-body: 400
+        </p>
+      </BrowserPreview>
+      <BrowserPreview
+        title="Font-family examples"
+        code={`<p>--font-family-heading: 'Open Sans', sans-serif;</p>
+<p>--font-family-body: 'Open Sans', sans-serif;</p>`}
+        client:idle
+      >
+        <p>--font-family-heading: 'Open Sans', sans-serif;</p>
+        <p>--font-family-body: 'Open Sans', sans-serif;</p>
+      </BrowserPreview>
+      <h3>Sizing</h3>
+      <p>Sizing is defined in the <code>_variables.css</code> file.</p>
+      <p>
+        You can use these sizing values for padding, margin, and other css rules
+        that require set size values
+      </p>
+      <SizingGrid />
+      <h4>Using Sizing in CSS</h4>
+      <p>
+        Sizes are defined as CSS custom properties, so you can use them anywhere
+        you would use a CSS variable.
+      </p>
+      <BrowserPreview
+        title="sizing example"
+        code={`.square {
+  width: var(--size-10);
+  height: var(--size-10);
+  background-color: var(--pine-900);        
+}`}
+        codeLanguage="css"
+        client:load
+      >
+        <div
+          style={{
+            width: "var(--size-10)",
+            height: "var(--size-10)",
+            backgroundColor: "var(--pine-900)",
+          }}
+        >
+        </div>
+      </BrowserPreview>
+      <h3>Icons</h3>
+      <p>
+        We primarily use <a href="https://fontawesome.com/"
+          >font-awesome icons</a
+        > throughout the application. As a fallback, we also use icons from Ellucian's
+        design system.
+      </p>
+    </Section>
+    <Section>
+      <h2>Components</h2>
+      <p>
+        Components are defined in the <code>components.css</code> file.
+      </p>
+      <p>
+        Components are defined as <code>classes</code> and can be used in your markup.
+        Below are code examples of our current "standard" components.
+      </p>
+      <ButtonCardDarkPreview />
+      <ButtonCardLightPreview />
+      <ButtonCardWhitePreview />
+      <ButtonCardImagePreview />
+      <LinkCardPreview />
+    </Section>
+  </main>
+</Layout>

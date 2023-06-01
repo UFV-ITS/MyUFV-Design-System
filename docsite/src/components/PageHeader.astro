@@ -1,0 +1,66 @@
+---
+const {
+  title = "Home",
+  description = "Welcome to the MyUFV design system examples page.",
+} = Astro.props;
+---
+
+<header class="main-container">
+  <div class="header__logo">
+    <img src="https://ufv.ca/bbstatic/myufv.png" alt="My UFV Logo" />
+  </div>
+  <div class="header__content">
+    <div class="header__card">
+      <small>Components, Colors, Fonts, etc.</small>
+      <h1>MyUFV Design System: {title}</h1>
+      <p>{description}</p>
+    </div>
+  </div>
+</header>
+
+<style>
+  header {
+    position: relative;
+    padding: var(--size-6) var(--size-3);
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.54) 0%,
+        rgba(0, 0, 0, 0)
+      ),
+      url(https://ufv.ca/bbstatic/bg.jpg);
+    background-size: cover;
+    background-position: center center;
+    min-height: 320px;
+    margin-bottom: 150px;
+  }
+
+  header img {
+    width: clamp(128px, 10vw, 164px);
+  }
+
+  header h1 {
+    margin-top: var(--size-2);
+  }
+
+  .header__content {
+    padding: 0;
+  }
+
+  .header__card {
+    position: absolute;
+    bottom: -120px;
+    padding: var(--size-5);
+    border-radius: 4px;
+    background: white;
+    margin: 0 var(--size-3) 0 0;
+    border-top: 1rem solid var(--pine-800);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 5px -1px,
+      rgba(0, 0, 0, 0.14) 0px 5px 8px 0px, rgba(0, 0, 0, 0.12) 0px 1px 14px 0px;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .header__card {
+      left: var(--size-3);
+    }
+  }
+</style>

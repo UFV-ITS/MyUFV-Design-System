@@ -1,0 +1,47 @@
+---
+import BrowserPreview from "../preview/BrowserPreview";
+const template = `<div
+  class="card card__button card__button--hero"
+  style="--bg-image: url(https://live.staticflickr.com/65535/52862915746_b0210a9e6a_h.jpg)"
+>
+  <div class="card__button__content">
+    <h3>This is a Button Card Hero</h3>
+    <p>
+      It has a heading, and text content within. It also has a photo background.
+    </p>
+  </div>
+  <div class="card__button__button">
+    <a href="#" class="" target="_blank" title="do something here"
+      >do something here</a
+    >
+  </div>
+</div>
+`;
+---
+
+<BrowserPreview title="Button Card: Hero" code={template} client:idle>
+  <div
+    class="card card__button card__button--hero"
+    style="--bg-image: url(https://live.staticflickr.com/65535/52862915746_b0210a9e6a_h.jpg)"
+  >
+    <div class="card__button__content">
+      <h3>This is a Button Card Hero</h3>
+      <p>
+        It has a heading, and text content within. It also has a photo
+        background.
+      </p>
+    </div>
+    <div class="card__button__button">
+      <a href="#" class="" target="_blank" title="do something here"
+        >do something here</a
+      >
+    </div>
+  </div>
+</BrowserPreview>
+
+<style>
+  .card {
+    max-width: 500px;
+    min-height: 290px;
+  }
+</style>
