@@ -14,6 +14,10 @@ It can be used independently of the other files, but it is a dependency at the t
     box-sizing: border-box;
 }
 
+body {
+    margin: 0px;
+}
+
 
 :root {
     /* COLORS */

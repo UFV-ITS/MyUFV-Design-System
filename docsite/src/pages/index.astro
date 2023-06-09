@@ -11,7 +11,7 @@ import ColorGrid from "../components/grids/ColorGrid.astro";
 import SizingGrid from "../components/grids/SizingGrid.astro";
 
 const codeSnippets = {
-  link: `<!-- add this into your html <head /> -->
+  link: `<!-- add this into your head tag -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
     import.meta.env.PUBLIC_BRANCH || "main"
   }/styles/_variables.css" /> 
@@ -67,6 +67,24 @@ const codeSnippets = {
         code={codeSnippets.import}
         codeVisible={true}
         codeLanguage="css"
+        client:idle
+      />
+      <BrowserPreview
+        title="Full HTML Document Template"
+        code={`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  ${codeSnippets.link.split("\n").join("\n  ")}
+</head>
+<body>
+  <!-- your content goes here -->
+</body>
+</html>
+`}
+        codeVisible={true}
+        codeLanguage="html"
         client:idle
       />
     </Section>
