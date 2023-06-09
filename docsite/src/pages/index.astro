@@ -11,7 +11,7 @@ import ColorGrid from "../components/grids/ColorGrid.astro";
 import SizingGrid from "../components/grids/SizingGrid.astro";
 
 const codeSnippets = {
-  link: `<!-- add this into your html <head /> -->
+  link: `<!-- add this into your head tag -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/UFV-ITS/MyUFV-Design-System@${
     import.meta.env.PUBLIC_BRANCH || "main"
   }/styles/_variables.css" /> 
@@ -60,14 +60,32 @@ const codeSnippets = {
         title="Import with HTML <link />"
         code={codeSnippets.link}
         codeVisible={true}
-        client:idle
+        client:visible
       />
       <BrowserPreview
         title="Import with CSS @import"
         code={codeSnippets.import}
         codeVisible={true}
         codeLanguage="css"
-        client:idle
+        client:visible
+      />
+      <BrowserPreview
+        title="Full HTML Document Template"
+        code={`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  ${codeSnippets.link.split("\n").join("\n  ")}
+</head>
+<body>
+  <!-- your content goes here -->
+</body>
+</html>
+`}
+        codeVisible={true}
+        codeLanguage="html"
+        client:visible
       />
     </Section>
     <Section>
@@ -139,7 +157,7 @@ const codeSnippets = {
 </p>
 `}
         title="Typography Examples"
-        client:idle
+        client:visible
       >
         <p
           style="margin: 0; font-size: var(--font-size-8); line-height: 1.5em;"
@@ -191,7 +209,7 @@ const codeSnippets = {
         title="Font-weight Examples"
         code={`<p style="font-weight: var(--font-weight-heading);">--font-weight-heading: 900</p>
 <p style="font-weight: var(--font-weight-body);">--font-weight-body: 400</p>`}
-        client:idle
+        client:visible
       >
         <p style="font-weight: var(--font-weight-heading);">
           --font-weight-heading: 900
@@ -204,7 +222,7 @@ const codeSnippets = {
         title="Font-family examples"
         code={`<p>--font-family-heading: 'Open Sans', sans-serif;</p>
 <p>--font-family-body: 'Open Sans', sans-serif;</p>`}
-        client:idle
+        client:visible
       >
         <p>--font-family-heading: 'Open Sans', sans-serif;</p>
         <p>--font-family-body: 'Open Sans', sans-serif;</p>

@@ -3,7 +3,7 @@ import type { FunctionComponent } from "preact";
 
 import "./BrowserPreview.css";
 
-import { getHighlighter, setCDN, Lang } from "shiki";
+import { getHighlighter, setCDN, Lang, Highlighter } from "shiki";
 setCDN("https://unpkg.com/shiki/");
 
 type BrowserPreviewProps = {
@@ -11,6 +11,31 @@ type BrowserPreviewProps = {
   code: string;
   codeVisible?: boolean;
   codeLanguage?: Lang;
+};
+
+/**
+ * uses the singleton pattern to create
+ * a single instance of Shiki Highlighter and store it in the window.
+ *
+ * Typically you would store this in a global state management system/context provider.
+ * Given we're working with a static site using islands, we can store it in the window so it's globally available.
+ *
+ * @returns a singleton instance of Shiki Highlighter
+ */
+const getOrCreateShikiSingleton = async (): Promise<Highlighter> => {
+  // @ts-ignore
+  if (window.highlighter) {
+    // @ts-ignore
+    return (await window.highlighter) as Highlighter;
+  }
+
+  // @ts-ignore
+  window.highlighter = getHighlighter({
+    theme: "github-light",
+    langs: ["html", "css", "javascript"],
+  });
+  // @ts-ignore
+  return await window.highlighter;
 };
 
 const BrowserPreview: FunctionComponent<BrowserPreviewProps> = ({
@@ -26,10 +51,7 @@ const BrowserPreview: FunctionComponent<BrowserPreviewProps> = ({
   // add code preview using Shiki
   useEffect(() => {
     const createCodePreview = async () => {
-      const highlighter = await getHighlighter({
-        theme: "github-light",
-        langs: [codeLanguage],
-      });
+      const highlighter = await getOrCreateShikiSingleton();
       const html = highlighter.codeToHtml(code, { lang: codeLanguage });
       setCodePreviewEl(html);
     };
