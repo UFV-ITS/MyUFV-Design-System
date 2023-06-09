@@ -1,13 +1,20 @@
 ---
+import { getImage, Image } from "astro:assets";
+import myUFV from "../assets/myUFV.png";
+import myUFVBg from "../assets/myUFVBackground.jpg";
+
+// optimizes background image with format and proper sizes
+const optMyUFVBg = await getImage({ src: myUFVBg, format: "webp" });
+
 const {
   title = "Home",
   description = "Welcome to the MyUFV design system examples page.",
 } = Astro.props;
 ---
 
-<header class="main-container">
+<header class="main-container" style={`--bg-img: url(${optMyUFVBg.src})`}>
   <div class="header__logo">
-    <img src="https://ufv.ca/bbstatic/myufv.png" alt="My UFV Logo" />
+    <Image src={myUFV} alt={"MyUFV Logo"} width={164} height={50} />
   </div>
   <div class="header__content">
     <div class="header__card">
@@ -27,7 +34,7 @@ const {
         rgba(0, 0, 0, 0.54) 0%,
         rgba(0, 0, 0, 0)
       ),
-      url(https://ufv.ca/bbstatic/bg.jpg);
+      var(--bg-img);
     background-size: cover;
     background-position: center center;
     min-height: 320px;
