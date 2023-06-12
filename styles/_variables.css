@@ -15,7 +15,7 @@ It can be used independently of the other files, but it is a dependency at the t
 }
 
 body {
-    margin: 0px;
+    margin: 0px !important;
 }
 
 
