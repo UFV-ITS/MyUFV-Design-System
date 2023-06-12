@@ -14,11 +14,6 @@ It can be used independently of the other files, but it is a dependency at the t
     box-sizing: border-box;
 }
 
-body {
-    margin: 0px !important;
-}
-
-
 :root {
     /* COLORS */
     /* https://uicolors.app/edit?sv1=gray:50-f5f8f7/100-ddeae6/200-bbd4ce/300-92b6af/400-6b968f/500-517b75/600-3f625d/700-35504d/800-2d423f/900-293836/950-172423;mint:50-f5f9ec/100-e8f2d5/200-daebbd/300-b4d680/400-99c358/500-7aa83a/600-5e852b/700-496625/800-3c5222/900-344720/950-19260d;pine:50-ecfff5/100-d2ffea/200-a8ffd6/300-65ffb8/400-1bff93/500-00f973/600-00d05b/700-00a24b/800-007e40/900-00703c/950-003b1c */
