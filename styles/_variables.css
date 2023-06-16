@@ -7,7 +7,7 @@ It can be used independently of the other files, but it is a dependency at the t
 
 /* importing fonts */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
 
 /* basic CSS resets */
 * {
