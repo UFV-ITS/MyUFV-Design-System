@@ -54,14 +54,29 @@
     background: var(--gray-50);
     padding: var(--size-1) var(--size-3);
     color: var(--gray-700);
+    font-size: var(--font-size-1);
+    font-family: var(--font-family-body);
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-size: small;
+    display: flex;
+    flex-direction: row;
+    gap: var(--size-2);
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.browser-preview__buttons button i {
+    color: var(--gray-700);
 }
 
 .browser-preview__buttons button:hover {
     background: var(--mint-50);
     border-color: var(--mint-300);
+    color: var(--mint-900);
+    cursor: pointer;
+}
+
+.browser-preview__buttons button:hover i {
     color: var(--mint-900);
 }
 
