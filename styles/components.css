@@ -77,6 +77,8 @@ and pages. it depends on _variables.css */
 .card__button ul {
     width: 100%;
     padding-inline-start: 25px;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .card__button ul li {
@@ -174,7 +176,6 @@ and pages. it depends on _variables.css */
     text-shadow: 1px 1px 2px #000000;
     display: grid;
     place-items: center;
-    text-align: center;
 }
 
 .card__button--hero>* {
