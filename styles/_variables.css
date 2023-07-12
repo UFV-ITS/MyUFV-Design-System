@@ -7,7 +7,8 @@ It can be used independently of the other files, but it is a dependency at the t
 
 /* importing fonts */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css");
+/* this will only work on UFV domains for Ellucian Experience / MyUFV */
+@import url("https://kit.fontawesome.com/e44b3e5453.css");
 
 /* basic CSS resets */
 * {

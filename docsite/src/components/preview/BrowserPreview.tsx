@@ -97,10 +97,12 @@ const BrowserPreview: FunctionComponent<BrowserPreviewProps> = ({
       ) : null}
       <div className="browser-preview__buttons">
         <button className="btn--primary" onClick={handleViewSource}>
-          {isCodeVisible ? "Hide" : "View"} Source
+          <span>{isCodeVisible ? "Hide" : "View"} Source</span>
+          <i className="fa-duotone fa-code fa-lg"></i>
         </button>
         <button className="btn--secondary" onClick={handleCodeCopy}>
-          Copy Code
+          <span>Copy Code</span>
+          <i className="fa-duotone fa-copy fa-lg"></i>
         </button>
       </div>
     </div>
