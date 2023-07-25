@@ -195,18 +195,22 @@ and pages. it depends on _variables.css */
     z-index: 1;
 }
 
+.card__button--hero span.icon {
+    color: var(--mint-50);
+}
+
 .card__button--hero .card__button__button a,
 .card__button--hero .card__button__button button {
-    color: var(--mint-200);
-    background: var(--pine-900);
-    border: 2px solid var(--pine-900);
+    color: var(--pine-900);
+    background: var(--mint-50);
+    border: 2px solid var(--mint-50);
 }
 
 .card__button--hero .card__button__button a:hover,
 .card__button--hero .card__button__button button:hover {
-    color: var(--pine-900);
-    background: var(--mint-200);
-    border: 2px solid var(--mint-200);
+    color: var(--mint-200);
+    background: var(--pine-900);
+    border: 2px solid var(--pine-900);
 }
 
 /* 1.2 LINKS CARDS */
