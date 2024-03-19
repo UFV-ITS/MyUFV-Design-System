@@ -4,9 +4,6 @@ import preact from "@astrojs/preact";
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    assets: true,
-  },
   image: {
     service: sharpImageService(),
   },
