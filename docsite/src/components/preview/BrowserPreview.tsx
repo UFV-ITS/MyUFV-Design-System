@@ -3,8 +3,8 @@ import type { FunctionComponent } from "preact";
 
 import "./BrowserPreview.css";
 
-import { getHighlighter, setCDN, Lang, Highlighter } from "shiki";
-setCDN("https://unpkg.com/shiki/");
+import { getHighlighter, type Lang, type Highlighter } from "shiki";
+// setCDN("https://unpkg.com/shiki/");
 
 type BrowserPreviewProps = {
   title?: string;
@@ -31,7 +31,7 @@ const getOrCreateShikiSingleton = async (): Promise<Highlighter> => {
 
   // @ts-ignore
   window.highlighter = getHighlighter({
-    theme: "github-light",
+    themes: ["github-light"],
     langs: ["html", "css", "javascript"],
   });
   // @ts-ignore
@@ -52,7 +52,7 @@ const BrowserPreview: FunctionComponent<BrowserPreviewProps> = ({
   useEffect(() => {
     const createCodePreview = async () => {
       const highlighter = await getOrCreateShikiSingleton();
-      const html = highlighter.codeToHtml(code, { lang: codeLanguage });
+      const html = highlighter.codeToHtml(code, { theme: 'github-light', lang: codeLanguage });
       setCodePreviewEl(html);
     };
     createCodePreview();
